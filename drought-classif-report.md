@@ -39,8 +39,8 @@ Berikut merupakan tujuan dibuatnya proyek ini:
 
 ### Solution statements
 Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
-- Pada bagian ***data preparation*** yang dibagi ke dalam proses ***data preprocessing*** dan ***data wrangling*** adalah:
-  * Memilih data mulai dari tahun 2017 hingga 2020 (hanya data `test_timeseries dan validation_timeseries` dari sumber original).
+- Pada bagian ***data preparation*** yang dibagi ke dalam proses ***data preprocessing*** dan ***data wrangling*** terdiri atas:
+  * Memilih data mulai dari tahun 2017 hingga 2020 (hanya data `test_timeseries dan validation_timeseries` dari sumber [original](https://www.kaggle.com/cdminix/us-drought-meteorological-data)).
   * Mengambil data yang menunjukkan tingkat *drought* secara bulat (bukan peralihan).
   * Mengekstrak fitur bulan berdasarkan fitur tanggal.
   * Menambahkan informasi wilayah berdasarkan *climate* dari data pendukung.
@@ -49,7 +49,7 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
   * Membagi dataset ke dalam data ***validation*** (2 bulan terakhir/ 3% dari total data) dan data ***train*** (sisanya atau 97%).
   * Mengubah fitur ke dalam tipe angka.
   * Menghilangkan data ***outliers*** pada data ***train***.
-  * Mengatasi data tidak seimbang dengan proses ***oversampling** serta ***undersampling***.
+  * Mengatasi data tidak seimbang dengan proses ***oversampling*** serta ***undersampling***.
   * Melakukan ***data standardization*** pada semua fitur.
  
 - Pada pembuatan model digunakan algoritma ***Logistic Regression*** sebagai baseline untuk kemudian dibandingkan dengan beberapa algoritma yaitu ***Multi Layer Perceptron***, ***Support Vector Machine***, dan ***LightGBM***
