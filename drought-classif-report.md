@@ -12,10 +12,10 @@ Statistik menunjukkan hampir setengah wilayah atau mencapai sekitar 47% keseluru
 
 ---
 
-<sub>1. Eslamian, S. et al. (2017). Drought Management: Current Challenges and Future Outlook. (pp.727-761, Chapter: 34).</sub><br>
-<sub>2. NOAA. (2021). DROUGHT: Monitoring Economic, Environmental, and Social Impacts.</sub><br>
-<sub>3. National Integrated Drought Information System (NIDIS). (2021). U.S. Drought Monitor.</sub><br>
-<sub>4. Peter Folger. (2017). Drought in the United States: Causes and Current Understanding. Congressional Research Service.</sub>
+<sub><sup>1. Eslamian, S. et al. (2017). Drought Management: Current Challenges and Future Outlook. (pp.727-761, Chapter: 34).</sup></sub><br>
+<sub><sup>2. NOAA. (2021). DROUGHT: Monitoring Economic, Environmental, and Social Impacts.</sup></sub><br>
+<sub><sup>3. National Integrated Drought Information System (NIDIS). (2021). U.S. Drought Monitor.</sup></sub><br>
+<sub><sup>4. Peter Folger. (2017). Drought in the United States: Causes and Current Understanding. Congressional Research Service.</sup></sub>
 
 ## Business Understanding
 Bagian ini menjelaskan proses klarifikasi masalah dan mengajukan minimal satu solusi untuk menyelesaikan permasalahan. Bagian laporan ini mencakup:
