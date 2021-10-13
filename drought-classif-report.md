@@ -100,11 +100,23 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
   * ***LightGBM (LGBM)***: Algoritma berbasis [*gradient boosting*](https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/) yang berbasis *tree*. Dibandingkan algoritma pada golongan sama yang menumbuhkan *tree* secara horizontal (*level-wise*). LGBM menumbuhkan *tree*nya secara vertikal (*leaf-wise*) yang memimilih *leaf* dengan nilai *loss* tersbesar untuk ditumbuhkan sebagaimana pada gambar di bawah. [<sup>8</sup>](https://www.analyticssteps.com/blogs/what-light-gbm-algorithm-how-use-it)
 
     <img width="560" height="400" src="https://miro.medium.com/max/724/0*4nrDSJJcTHNjMjmb.png">
+    
+    Keunikan yang dimiliki oleh LGBM adalah pada metode *boosting*nya yang bernama *GOSS (Gradient Based One Side Sampling)*. GOSS merupakan metode pengambilan sampel baru yaitu downsample menggunakan gradien. Dimana GOSS mengambil seluruh gradien instance yang bernilai besar, sedangkan untuk gradien bernilai kecil LGBM hanya diambil secara acak berupa sampel. Selain, itu terdapat juga *EFB (Exclusive Feature Building)* yang dapat mengurangi kompleksitas data dengan cara menmbundle beberapa fitur menjadi satu. [<sup>9</sup>](https://towardsdatascience.com/what-makes-lightgbm-lightning-fast-a27cf0d9785e) Berikut [kelebihan dan kekurangan](https://www.kaggle.com/questions-and-answers/103834) LGBM:
+    
+    Kelebihan | Kekurangan
+    -- | --
+    Cepat dan Efisien (alasan pemilihan model) | Kurangnya support maupun komunitas
+    Penggunaan memori yang sedikit (alasan pemilihan model) | Model yang cenderung seperti *blackbox*
+    Memiliki hasil lebih baik dibanding algoritma sejenis |
+    Sanagt baik pada data berukuran sangat besar (alasan pemilihan model) |
+    Kemampuan menggunakan komputasi GPU |
+    Kemampuan dalam paralelization | 
 ---
 <sub><sup>5. Shubang Agrawal. (2021). Medium: Logistic Regression.</sup></sub><br>
 <sub><sup>6. Edpresso Team. What is a multi-layered perceptron?</sup></sub><br>
-<sub><sup>7. Rohith Gandhi. (2018). towardsdatascience: SVM, Introduction to Machin Learning Algorithms.</sup></sub>
-<sub><sup>8. Rohit Dwivedi. (2020). analyticssteps: What is LightGBM Algorithm, How to use it?</sup></sub>
+<sub><sup>7. Rohith Gandhi. (2018). towardsdatascience: SVM, Introduction to Machin Learning Algorithms.</sup></sub><br>
+<sub><sup>8. Rohit Dwivedi. (2020). analyticssteps: What is LightGBM Algorithm, How to use it?</sup></sub><br>
+<sub><sup>9. Abhishek Sharma. (2018). towardsdatascience: What makes LightGBM lightning fast?</sup></sub>
 
 ## Data Understanding
 Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
