@@ -54,9 +54,10 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
  
 - Pada pembuatan model digunakan algoritma ***Logistic Regression*** sebagai baseline untuk kemudian dibandingkan dengan beberapa algoritma yaitu ***Multi Layer Perceptron***, ***Support Vector Machine***, dan ***LightGBM***
 
-  * ***Logistic Regression***: Merupakan model ***linear*** dalam kasus klasifikasi yang memprediksi response variable menggunakan fungsi persamaan ***logit*** (***sigmoid***) seperti pada gambar berikut. [<sup>5</sup>](https://medium.datadriveninvestor.com/logistic-regression-1532070cf349) Algoritma ini biasanya sering dijadikan sebagai `baseline model` karena kesederhanaannya.
+  * ***Logistic Regression***: Merupakan model ***linear*** dalam kasus klasifikasi yang memprediksi response variable menggunakan fungsi persamaan ***sigmoid*** (***logit***) seperti pada gambar berikut. [<sup>5</sup>](https://medium.datadriveninvestor.com/logistic-regression-1532070cf349) Algoritma ini biasanya sering dijadikan sebagai `baseline model` karena kesederhanaannya.
  
-    ![sigmoid](https://miro.medium.com/max/800/0*0daHL1k1qzunwQmc.png) 
+    <img width="650" height="450" src="https://miro.medium.com/max/800/0*0daHL1k1qzunwQmc.png">
+    
     Kelebihan   | Kekurangan
     -- | --
     Simpel, Cepat, Mudah | Kurang bagus pada data
@@ -65,7 +66,11 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
     Tidak hanya menunjukkan seberapa perlunya koefisien, namun juga arah asosiasinya | Sering disalah artikan untuk kasus regresi
     Menghasilkan model cukup baik terutama jika terdapat hubungan linear cukup jelas | Memiliki asumsi bahwa antara fitur tidak berkorelasi sangat kuat
     
-  * ***Multi Layer Perceptron***: Merupakan model ***neural network*** sederhana yang biasanya hanya memiliki sebuah ***hidden layer***. Bekerja dengan meneruskan data dari ***input layer*** hingga ke ***hidden layer*** dan ***output layer*** atau biasa disebut dengan proses [***feedforward***](https://towardsdatascience.com/deep-learning-feedforward-neural-network-26a6705dbdc7). Kemudian diiterasikan kembali ke belakang atau disebut proses [***backward propagation***](https://towardsdatascience.com/how-does-back-propagation-in-artificial-neural-networks-work-c7cad873ea7) untuk memperkecil nilai `error` sehingga menghasilkan model yang baik. [<sup>6</sup>](https://www.educative.io/edpresso/what-is-a-multi-layered-perceptron) Sedangkan berikut [kelebihan dan kekurangannya](https://scikit-learn.org/stable/modules/neural_networks_supervised.html).
+  * ***Multi Layer Perceptron***: Merupakan model ***neural network*** sederhana yang biasanya hanya memiliki sebuah ***hidden layer*** seperti pada gambar di bawah berikut. Bekerja dengan meneruskan data dari ***input layer*** hingga ke ***hidden layer*** dan ***output layer*** atau biasa disebut dengan proses [***feedforward***](https://towardsdatascience.com/deep-learning-feedforward-neural-network-26a6705dbdc7). Kemudian diiterasikan kembali ke belakang atau disebut proses [***backward propagation***](https://towardsdatascience.com/how-does-back-propagation-in-artificial-neural-networks-work-c7cad873ea7) untuk memperkecil nilai `error` sehingga menghasilkan model yang baik. [<sup>6</sup>](https://www.educative.io/edpresso/what-is-a-multi-layered-perceptron) 
+  
+  <img width="460" height="400" src="https://scikit-learn.org/stable/_images/multilayerperceptron_network.png">
+  
+  Sedangkan berikut [kelebihan dan kekurangannya](https://scikit-learn.org/stable/modules/neural_networks_supervised.html).
   
    Kelebihan | Kekurangan
   -- | --
@@ -73,12 +78,33 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
   Kemampuan mempelajari model secara real time | Membutuhkan tuning hyperparameter yang cukup rumit
   Kemampuan menyelesaikan masalah `kompleks atau data sangat besar` dengan sangat baik (salah satu alasan pemilihan) | Perbedaan inisialisasi weight dapat menyebabkan nilai metrik pada validasi berbeda
 
-  * ***Support Vector Machine***:
-  * ***LightGBM***:
+  * ***Support Vector Machine (SVM)***: Algoritma yang bekerja dengan cara menemukan garis pemisah (***hyperplane***) antar data dengan membuat kelas berbeda yang mampu menyelesaikan masalah baik *linear* maupun *non-linear* terutama pada kasus klasifikasi. *Hyperplane* tersebut sangat terpengaruh dengan adanya data point di dekatnya, sehingga dapat menyebabkan suatu margin yang berusaha dimaksimalkan untuk mendapatkan hasil terbaik sebagaimana pada gambar di bawah berikut. [<sup>7</sup>](https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47) 
+  
+   ![svm](https://miro.medium.com/max/600/0*9jEWNXTAao7phK-5.png) ![svm_optimal](https://miro.medium.com/max/600/0*0o8xIA4k3gXUDCFU.png)
+   
+   Penerapan pada proyek ini sendiri dengan mengaplikasikan teknik optimasi *Stochastic Gradient Descent (SGD)*. Dengan [penjelasan detail](https://leon.bottou.org/projects/sgd) yaitu:
+     1. *Learning Rate* dituliskan dalam bentuk persamaan η0 / (1 + λ η0 t) dengan λ adalah nilai konstan untuk regularisasi,
+     2. Nilai konstan η0 ditentukan terlebih dahulu pada *subsample data*,
+     3. *Learning Rate* pada bias dikalikan dengan 0.001 karena biasanya dapat meningkatkan kondisinya,
+     4. *Weight* direpresentasikan sebagai produk suatu skalar dan vektor dalam rangka memudahkan proses [*weight decay*](https://medium.com/analytics-vidhya/deep-learning-basics-weight-decay-3c68eb4344e9#:~:text=Weight%20decay%20is%20a%20regularization,weights%20and%20not%20the%20bias.).
 
+    Berikut merupakan kelebihan serta kekurangan [SVM](https://scikit-learn.org/stable/modules/svm.html) menggunakan [SGD](https://scikit-learn.org/stable/modules/sgd.html#sgd) ini:
+    Kelebihan | Kekurangan
+    -- | --
+    Efektif pada data berdimensi tinggi bahkan jika jumlah sampel cenderung sedikit | Jika jumlah sampel sedikit rentan overfitting
+    Penggunaan memori yang efisien (alasan pemilihan model) | Penghitungan nilai probabilitas yang butuh *high computation*
+    Algoritma serbaguna (dalam arti dapat memilih fungsi *decision* berbeda) | SGD membutuhkan parameter regularisasi dan jumlah iterasi
+    Efisiensi yang sangat baik terutama pada data `berskala besar` (alasan pemilihan model) | Sensitif terhadap *feature scaling*
+    Kemudahan proses implementasi dan interpretasi |
+    
+  * ***LightGBM (LGBM)***: Algoritma berbasis [*gradient boosting*](https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/) yang berbasis *tree*. Dibandingkan algoritma pada golongan sama yang menumbuhkan *tree* secara horizontal (*level-wise*). LGBM menumbuhkan *tree*nya secara vertikal (*leaf-wise*) yang memimilih *leaf* dengan nilai *loss* tersbesar untuk ditumbuhkan sebagaimana pada gambar di bawah. [<sup>8</sup>](https://www.analyticssteps.com/blogs/what-light-gbm-algorithm-how-use-it)
+
+    <img width="560" height="400" src="https://miro.medium.com/max/724/0*4nrDSJJcTHNjMjmb.png">
 ---
 <sub><sup>5. Shubang Agrawal. (2021). Medium: Logistic Regression.</sup></sub><br>
-<sub><sup>6. Edpresso Team. (2021). What is a multi-layered perceptron?</sup></sub>
+<sub><sup>6. Edpresso Team. What is a multi-layered perceptron?</sup></sub><br>
+<sub><sup>7. Rohith Gandhi. (2018). towardsdatascience: SVM, Introduction to Machin Learning Algorithms.</sup></sub>
+<sub><sup>8. Rohit Dwivedi. (2020). analyticssteps: What is LightGBM Algorithm, How to use it?</sup></sub>
 
 ## Data Understanding
 Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
