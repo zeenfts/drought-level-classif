@@ -54,7 +54,7 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
  
 - Pada pembuatan model digunakan algoritma ***Logistic Regression*** sebagai baseline untuk kemudian dibandingkan dengan beberapa algoritma yaitu ***Multi Layer Perceptron***, ***Support Vector Machine***, dan ***LightGBM***
 
-  * ***Logistic Regression***: Merupakan model ***linear*** dalam kasus klasifikasi yang memprediksi response variable menggunakan fungsi persamaan ***logit*** (***sigmoid***) seperti pada gambar berikut. [<sup>5</sup>](https://medium.datadriveninvestor.com/logistic-regression-1532070cf349) Algoritma ini biasanya sering dijadikan sebagai `baseline model`.
+  * ***Logistic Regression***: Merupakan model ***linear*** dalam kasus klasifikasi yang memprediksi response variable menggunakan fungsi persamaan ***logit*** (***sigmoid***) seperti pada gambar berikut. [<sup>5</sup>](https://medium.datadriveninvestor.com/logistic-regression-1532070cf349) Algoritma ini biasanya sering dijadikan sebagai `baseline model` karena kesederhanaannya.
  
     ![sigmoid](https://miro.medium.com/max/800/0*0daHL1k1qzunwQmc.png) 
     Kelebihan   | Kekurangan
@@ -71,7 +71,7 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
   -- | --
   Kemampuan dalam mempelajari data non-linear | Sensitive terhadap ***feature scaling***
   Kemampuan mempelajari model secara real time | Membutuhkan tuning hyperparameter yang cukup rumit
-  Kemampuan menyelesaikan masalah `kompleks atau data sangat besar` dengan sangat baik | Perbedaan inisialisasi weight dapat menyebabkan nilai metrik pada validasi berbeda
+  Kemampuan menyelesaikan masalah `kompleks atau data sangat besar` dengan sangat baik (salah satu alasan pemilihan) | Perbedaan inisialisasi weight dapat menyebabkan nilai metrik pada validasi berbeda
 
   * ***Support Vector Machine***:
   * ***LightGBM***:
