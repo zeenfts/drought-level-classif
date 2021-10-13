@@ -167,7 +167,7 @@ No | Fitur | Rincian
 18.| `WS50M_MAX` | Kecepatan maksimum angin pada ketinggian 50 Meter (m/s).
 19.| `WS50M_MIN` | Kecepatan minimum angin pada ketinggian 50 Meter (m/s).
 20.| `WS50M_RANGE` | WS50M_MAX - WS50M_MIN.
-21.| `score` | Ukuran tingkatan ***drought*** mulai dari D0 (tidak ada *drought*), D1-D4 (*drought* berskala).
+21.| `score` | Ukuran tingkatan ***drought*** mulai dari D0 (tidak ada *drought*), D1-D4 (*drought* berskala). Tercatat hanya dalam kurun waktu setiap sepekan sekali.
 
 ### Fitur-fitur pada data pendukung adalah sebagai berikut:
 No | Fitur | Rincian
