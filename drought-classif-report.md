@@ -1,37 +1,55 @@
 # Laporan Proyek Machine Learning - Muhammad Difagama Ivanka
 ---
 ## Domain Proyek
-Proyek *machine learning* ini akan menyelesaikan permasalahan dalam domain **lingkungan** dengan judul "Prediksi Kekeringan parah berdasarkan Data *Meteorological* dan Data informasi *Soil*".
+Proyek ***Machine Learning*** ini akan menyelesaikan permasalahan dalam domain **lingkungan** dengan judul "Prediksi Kekeringan parah berdasarkan Data *Meteorological* dan Data Informasi *Soil*".
 
 ### Latar Belakang
 Kekeringan yang terjadi dengan tidak normal atau biasa disebut *drought* merupakan salah satu fenomena alam dengan dampak signifikan terhadap beberapa aspek seperti lingkungan, pertanian, masyarakat, hingga ekonomi. Ciri utama dari fenomena ini adalah kekurangan sumber air yang sangat parah pada suatu area tertentu ditandai dengan sangat kecilnya tingkat presipitasi dalam jangka waktu lumayan panjang. Dengan keadaan seperti itu fenomena ekstrem ini tetap dapat terjadi pada wilayah dengan tingkat presipitasi atau curah hujan sangat tinggi serta tanpa batasan keadaan iklim sama sekali. Sehingga dampak fenomena ini dapat lebih terasa jika dibandingkan dengan fenomena alam lainnya. [<sup>1</sup>](https://www.researchgate.net/publication/319328223_Drought_Management_Current_Challenges_and_Future_Outlook)
 
-Menurut National Oceanic dan Atmospheric Administration (NOAA), [<sup>2</sup>](https://www.ncdc.noaa.gov/news/drought-monitoring-economic-environmental-and-social-impacts) fenomena ini tidak tampak secara nyata dan mengerikan sebagaimana pada fenomena tornado. Namun faktanya kerugian yang dirasakan rata-rata mencapai kurang lebih 9 Miliar USD setiap tahunnya. Dampak tersebut dapat berpengaruh terhadap ekonomi seperti harga kebutuhan pokok maupun secara langsung terhadap produk olahan pertanian semisal keju, padi, dan sebagainya. Dampak lain yang dapat ditimbulkan berupa defisit air minum, penyakit sengatan panas, meningkatkan risiko kebakaran hutan, serta lainnya terutama apabila terjadi terus menerus dalam jangka waktu panjang.
+Menurut **National Oceanic dan Atmospheric Administration (NOAA)**, [<sup>2</sup>](https://www.ncdc.noaa.gov/news/drought-monitoring-economic-environmental-and-social-impacts) fenomena ini tidak tampak secara nyata dan mengerikan sebagaimana pada fenomena tornado. Namun faktanya kerugian yang dirasakan rata-rata mencapai kurang lebih 9 Miliar USD setiap tahunnya. Dampak tersebut dapat berpengaruh terhadap ekonomi seperti harga kebutuhan pokok maupun secara langsung terhadap produk olahan pertanian semisal keju, padi, dan sebagainya. Dampak lain yang dapat ditimbulkan berupa defisit air minum, penyakit sengatan panas, meningkatkan risiko kebakaran hutan, serta lainnya terutama apabila terjadi terus menerus dalam jangka waktu panjang.
 
 > Statistik menunjukkan hampir setengah wilayah atau mencapai sekitar 47% keseluruhan Amerika Serikat mengalami fenomena ini berdasarkan skala tingkatan sejumlah 5 level mulai dari D0 hingga D4, dengan fenomena *drought* mulai ditunjukkan pada level D1. [<sup>3</sup>](https://www.drought.gov/) 
  
-Untuk itu diperlukan suatu metode didalam membantu mengatasi fenomena ini dimana teknologi serta pemahaman peneliti semata masih terbatas untuk dapat memperkirakan akan terjadinya fenomena ini setidaknya beberapa bulan ke depan. [<sup>4</sup>](https://sgp.fas.org/crs/misc/R43407.pdf) Maka proyek ini mencoba menyelesaikan permasalahan yang ada dengan menerapkan kemampuan dari *machine learning* sehingga dapat membantu memprediksi fenomena *drought* tersebut berdasarkan data historis *meteorological* berupa informasi cuaca serta iklim dan juga data *soil* yang mengandung informasi keadaan tanah pada suatu wilayah dalam proyek ini mengambil contoh Amerika Serikat. Diharapkan *machine learning* dapat memudahkan para ahli maupun masyarakat untuk melakukan tindakan persiapan sebelum fenomena terjadi dengan proses implementasi yang secara *web* hingga *mobile* dapat diterapkan.
+Untuk itu diperlukan suatu metode didalam membantu mengatasi fenomena ini dimana teknologi serta pemahaman peneliti semata masih terbatas untuk dapat memperkirakan akan terjadinya fenomena ini setidaknya beberapa bulan ke depan. [<sup>4</sup>](https://sgp.fas.org/crs/misc/R43407.pdf) Maka proyek ini mencoba menyelesaikan permasalahan yang ada dengan menerapkan kemampuan dari *machine learning* sehingga dapat membantu memprediksi fenomena *drought* tersebut berdasarkan data historis ***meteorological*** berupa informasi cuaca serta iklim dan juga data ***soil*** yang mengandung informasi keadaan tanah pada suatu wilayah dalam proyek ini mengambil contoh Amerika Serikat. Diharapkan *machine learning* dapat memudahkan para ahli maupun masyarakat untuk melakukan tindakan persiapan sebelum fenomena terjadi dengan proses implementasi yang secara *web* hingga *mobile* dapat diterapkan.
 
 ---
 <sub><sup>1. Eslamian, S. et al. (2017). Drought Management: Current Challenges and Future Outlook. (pp.727-761, Chapter: 34).</sup></sub><br>
 <sub><sup>2. NOAA. (2021). DROUGHT: Monitoring Economic, Environmental, and Social Impacts.</sup></sub><br>
-<sub><sup>3. National Integrated Drought Information System (NIDIS). (2021). U.S. Drought Monitor.</sup></sub><br>
+<sub><sup>3. National Integrated Drought Information System (NIDIS). (2021). U.S. Drought Monitor. Data tanggal 13 Oktober 2021.</sup></sub><br>
 <sub><sup>4. Peter Folger. (2017). Drought in the United States: Causes and Current Understanding. Congressional Research Service.</sup></sub>
 
 ## Business Understanding
-Bagian ini menjelaskan proses klarifikasi masalah dan mengajukan minimal satu solusi untuk menyelesaikan permasalahan. Bagian laporan ini mencakup:
+Bagian ini menjelaskan proses klarifikasi masalah dengan mengajukan beberapa solusi dalam menyelesaikannya.
 
 ### Problem Statements
-Tuliskan problem statement Anda di sini. Anda dapat menggunakan kalimat tanya untuk mendefinisikan bagian ini.
+Berangkat dari latar belakang tersebut, maka rincian masalah yang dapat diselesaikan diantaranya:
+1. Bagaimana proses ***data preparation*** yang baik, sehingga dataset ***meteorological*** dan dataset ***soil*** dapat digunakan untuk membuat model yang baik?
+2. Bagaimana model ***machine learning*** terbaik yang dapat mengklasifikasikan fenomena ***drought***?
 
 ### Goals
-Tuliskan dan jelaskan goal proyek yang ingin Anda capai di bagiani ini. Anda dapat menggunakan bullet point jika memiliki lebih dari satu goals proyek.
+Berikut merupakan tujuan dibuatnya proyek ini:
+1. Melakukan proses ***data preparation*** sehingga data siap untuk digunakan dalam pembuatan model.
+2. Membuat model ***machine learning*** terbaik untuk mengklasifikasikan fenomena ***drought*** dengan batas metrik `minimal 70%`.
 
 ### Solution statements
-Sampaikan solusi yang Anda ajukan untuk menyelesaikan permasalahan di sini. Misalnya, Anda mengajukan dua algoritma machine learning sebagai solusi permasalahan, yaitu Random Forest dan Boosting Algorithm. Jelaskan secara singkat mengenai kedua algoritma ini. 
-Sebagai contoh:
-- **Random Forest**. Kalimat selanjutnya menjelaskan informasi atau cara kerja algoritma ini. Selain itu, dapat juga Anda tambahkan kelebihan dan kekurangan algoritma ini.
-- **Boosting Algorithm**. Sama dengan di atas. 
+Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
+- Pada bagian ***data preparation*** yang dibagi ke dalam proses ***data preprocessing*** dan ***data wrangling*** adalah:
+  * Memilih data mulai dari tahun 2017 hingga 2020 (hanya data `test_timeseries dan validation_timeseries` dari sumber original).
+  * Mengambil data yang menunjukkan tingkat *drought* secara bulat (bukan peralihan).
+  * Mengekstrak fitur bulan berdasarkan fitur tanggal.
+  * Menambahkan informasi wilayah berdasarkan *climate* dari data pendukung.
+  * Menggabungkan dataset *meteorological* dengan dataset *soil*.
+  * Merubah kelas kategori *drought* menjadi hanya dua.
+  * Membagi dataset ke dalam data ***validation*** (2 bulan terakhir/ 3% dari total data) dan data ***train*** (sisanya atau 97%).
+  * Mengubah fitur ke dalam tipe angka.
+  * Menghilangkan data ***outliers*** pada data ***train***.
+  * Mengatasi data tidak seimbang dengan proses ***oversampling** serta ***undersampling***.
+  * Melakukan ***data standardization*** pada semua fitur.
+- Pada pembuatan model digunakan algoritma ***Logistic Regression*** sebagai baseline untuk kemudian dibandingkan dengan beberapa algoritma yaitu ***Multi Layer Perceptron***, ***Support Vector Machine***, dan ***LightGBM***
+  * ***Logistic Regression***: 
+  * ***Multi Layer Perceptron***:
+  * ***Support Vector Machine***:
+  * ***LightGBM***:
 
 ## Data Understanding
 Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
