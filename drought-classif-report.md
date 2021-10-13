@@ -1,7 +1,13 @@
 # Laporan Proyek Machine Learning - Muhammad Difagama Ivanka
----
+
 ## Domain Proyek
 Proyek ***Machine Learning*** ini akan menyelesaikan permasalahan dalam domain **lingkungan** dengan judul "Prediksi Kekeringan parah berdasarkan Data *Meteorological* dan Data Informasi *Soil*".
+
+&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[<sub><sup>image source</sup></sub>](https://unsplash.com/photos/8wuOLdN77A4)
+
+<p align="center">
+  <img width="460" height="300" src="https://user-images.githubusercontent.com/59215827/137079905-72dcbb55-bd12-47c1-9f1a-ea89dffea504.jpg" alt="Source: https://unsplash.com/photos/8wuOLdN77A4">
+</p>
 
 ### Latar Belakang
 Kekeringan yang terjadi dengan tidak normal atau biasa disebut *drought* merupakan salah satu fenomena alam dengan dampak signifikan terhadap beberapa aspek seperti lingkungan, pertanian, masyarakat, hingga ekonomi. Ciri utama dari fenomena ini adalah kekurangan sumber air yang sangat parah pada suatu area tertentu ditandai dengan sangat kecilnya tingkat presipitasi dalam jangka waktu lumayan panjang. Dengan keadaan seperti itu fenomena ekstrem ini tetap dapat terjadi pada wilayah dengan tingkat presipitasi atau curah hujan sangat tinggi serta tanpa batasan keadaan iklim sama sekali. Sehingga dampak fenomena ini dapat lebih terasa jika dibandingkan dengan fenomena alam lainnya. [<sup>1</sup>](https://www.researchgate.net/publication/319328223_Drought_Management_Current_Challenges_and_Future_Outlook)
@@ -45,11 +51,34 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
   * Menghilangkan data ***outliers*** pada data ***train***.
   * Mengatasi data tidak seimbang dengan proses ***oversampling** serta ***undersampling***.
   * Melakukan ***data standardization*** pada semua fitur.
+ 
 - Pada pembuatan model digunakan algoritma ***Logistic Regression*** sebagai baseline untuk kemudian dibandingkan dengan beberapa algoritma yaitu ***Multi Layer Perceptron***, ***Support Vector Machine***, dan ***LightGBM***
-  * ***Logistic Regression***: 
-  * ***Multi Layer Perceptron***:
+
+  * ***Logistic Regression***: Merupakan model ***linear*** dalam kasus klasifikasi yang memprediksi response variable menggunakan fungsi persamaan ***logit*** (***sigmoid***) seperti pada gambar berikut. [<sup>5</sup>](https://medium.datadriveninvestor.com/logistic-regression-1532070cf349) Algoritma ini biasanya sering dijadikan sebagai `baseline model`.
+ 
+    ![sigmoid](https://miro.medium.com/max/800/0*0daHL1k1qzunwQmc.png) 
+    Kelebihan   | Kekurangan
+    -- | --
+    Simpel, Cepat, Mudah | Kurang bagus pada data
+    Tidak butuh asumsi distribusi pada fitur | Membangun berdasarkan model linear
+    Dapat digunakan juga pada kasus multinomial | Limitasi utama yang mengasumsikan hubungan linear antara predictor dengan response variabel
+    Tidak hanya menunjukkan seberapa perlunya koefisien, namun juga arah asosiasinya | Sering disalah artikan untuk kasus regresi
+    Menghasilkan model cukup baik terutama jika terdapat hubungan linear cukup jelas | Memiliki asumsi bahwa antara fitur tidak berkorelasi sangat kuat
+    
+  * ***Multi Layer Perceptron***: Merupakan model ***neural network*** sederhana yang biasanya hanya memiliki sebuah ***hidden layer***. Bekerja dengan meneruskan data dari ***input layer*** hingga ke ***hidden layer*** dan ***output layer*** atau biasa disebut dengan proses [***feedforward***](https://towardsdatascience.com/deep-learning-feedforward-neural-network-26a6705dbdc7). Kemudian diiterasikan kembali ke belakang atau disebut proses [***backward propagation***](https://towardsdatascience.com/how-does-back-propagation-in-artificial-neural-networks-work-c7cad873ea7) untuk memperkecil nilai `error` sehingga menghasilkan model yang baik. [<sup>6</sup>](https://www.educative.io/edpresso/what-is-a-multi-layered-perceptron) Sedangkan berikut [kelebihan dan kekurangannya](https://scikit-learn.org/stable/modules/neural_networks_supervised.html).
+  
+   Kelebihan | Kekurangan
+  -- | --
+  Kemampuan dalam mempelajari data non-linear | Sensitive terhadap ***feature scaling***
+  Kemampuan mempelajari model secara real time | Membutuhkan tuning hyperparameter yang cukup rumit
+  Kemampuan menyelesaikan masalah `kompleks atau data sangat besar` dengan sangat baik | Perbedaan inisialisasi weight dapat menyebabkan nilai metrik pada validasi berbeda
+
   * ***Support Vector Machine***:
   * ***LightGBM***:
+
+---
+<sub><sup>5. Shubang Agrawal. (2021). Medium: Logistic Regression.</sup></sub><br>
+<sub><sup>6. Edpresso Team. (2021). What is a multi-layered perceptron?</sup></sub>
 
 ## Data Understanding
 Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
