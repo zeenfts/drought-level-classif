@@ -68,7 +68,7 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
     
   * **Multi Layer Perceptron**: Merupakan model ***neural network*** sederhana yang biasanya hanya memiliki sebuah ***hidden layer*** seperti pada gambar di bawah berikut. Bekerja dengan meneruskan data dari ***input layer*** hingga ke ***hidden layer*** dan ***output layer*** atau biasa disebut dengan proses [***feedforward***](https://towardsdatascience.com/deep-learning-feedforward-neural-network-26a6705dbdc7). Kemudian diiterasikan kembali ke belakang atau disebut proses [***backward propagation***](https://towardsdatascience.com/how-does-back-propagation-in-artificial-neural-networks-work-c7cad873ea7) untuk memperkecil nilai `error` sehingga menghasilkan model yang baik. [<sup>6</sup>](https://www.educative.io/edpresso/what-is-a-multi-layered-perceptron) 
   
-  <img width="460" height="400" src="https://scikit-learn.org/stable/_images/multilayerperceptron_network.png">
+    <img width="460" height="400" src="https://scikit-learn.org/stable/_images/multilayerperceptron_network.png">
   
   Sedangkan berikut [kelebihan dan kekurangannya](https://scikit-learn.org/stable/modules/neural_networks_supervised.html).
   
@@ -80,9 +80,9 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
 
   * **Support Vector Machine (SVM)**: Algoritma yang bekerja dengan cara menemukan garis pemisah (***hyperplane***) antar data dengan membuat kelas berbeda yang mampu menyelesaikan masalah baik *linear* maupun *non-linear* terutama pada kasus klasifikasi. *Hyperplane* tersebut sangat terpengaruh dengan adanya data point di dekatnya, sehingga dapat menyebabkan suatu margin yang berusaha dimaksimalkan untuk mendapatkan hasil terbaik sebagaimana pada gambar di bawah berikut. [<sup>7</sup>](https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47) 
   
-   ![svm](https://miro.medium.com/max/600/0*9jEWNXTAao7phK-5.png) ![svm_optimal](https://miro.medium.com/max/600/0*0o8xIA4k3gXUDCFU.png)
+    ![svm](https://miro.medium.com/max/600/0*9jEWNXTAao7phK-5.png) ![svm_optimal](https://miro.medium.com/max/600/0*0o8xIA4k3gXUDCFU.png)
    
-   Penerapan pada proyek ini sendiri dengan mengaplikasikan teknik optimasi **Stochastic Gradient Descent (SGD)**. Dengan [penjelasan detail](https://leon.bottou.org/projects/sgd) yaitu:
+    Penerapan pada proyek ini sendiri dengan mengaplikasikan teknik optimasi **Stochastic Gradient Descent (SGD)**. Dengan [penjelasan detail](https://leon.bottou.org/projects/sgd) yaitu:
      1. *Learning Rate* dituliskan dalam bentuk persamaan η0 / (1 + λ η0 t) dengan λ adalah nilai konstan untuk regularisasi,
      2. Nilai konstan η0 ditentukan terlebih dahulu pada *subsample data*,
      3. *Learning Rate* pada bias dikalikan dengan 0.001 karena biasanya dapat meningkatkan kondisinya,
@@ -112,7 +112,17 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
     Kemampuan menggunakan komputasi GPU |
     Kemampuan dalam paralelization | 
     
-- Kemudian hasil perbandingan tersebut dipilih model dengan nilai metrik terbaik untuk selanjutnya dapat dikembangkan lebih lanjut dengan menerapkan ***hyperparameter tuning*** secara otomatis menggunakan algoritma [**Bayesian Optimization**](https://github.com/fmfn/BayesianOptimization). Algoritma ini menerapkan prinsip **Bayes Theorem** didalam proses pencarian *hyperparamater* terbaik bagi model secara efisien dan efektif. Bayesian bekerja dengan cara membangun model probabilistik terhadap suatu objektif untuk kemudian dijadikan landasan menentukan di area mana selanjutnya *hyperparameter* untuk dievaluasi dengan tetap mengacu kepada hasil evaluasi dari area sebelumnya. [<sup>10</sup>](https://proceedings.neurips.cc/paper/2012/file/05311655a15b75fab86956663e1819cd-Paper.pdf)
+- Kemudian hasil perbandingan tersebut dipilih model dengan nilai metrik terbaik untuk selanjutnya dapat dikembangkan lebih lanjut dengan menerapkan ***hyperparameter tuning*** secara otomatis menggunakan algoritma [**Bayesian Optimization**](https://github.com/fmfn/BayesianOptimization). Algoritma ini menerapkan prinsip **Bayes Theorem** didalam proses pencarian *hyperparamater* terbaik bagi model secara efisien dan efektif. Bayesian bekerja dengan cara membangun model probabilistik terhadap suatu objektif untuk kemudian dijadikan landasan menentukan di area mana selanjutnya *hyperparameter* untuk dievaluasi dengan tetap mengacu kepada hasil evaluasi dari area sebelumnya sebagaimana ditunjukkan pada gambar di bawah. [<sup>10</sup>](https://proceedings.neurips.cc/paper/2012/file/05311655a15b75fab86956663e1819cd-Paper.pdf)
+
+  <img width="560" height="400" src="https://research.fb.com/wp-content/uploads/2018/09/bo_1d_opt.gif">
+
+  Kelebihan | Kekurangan
+  -- | --
+  Meringankan beban dari objektif yang dijalankan | Bekerja kurang baik pada data dengan fitur categorical
+  Bekerja seperti *high level* api  | Berjalan lambat jika jumlah *hyperparameter* semakin banyak
+  Robust terhadap fungsi evaluasi yang kurang baik | Bergantung kepada suatu *optimizer*
+  Optimal dalam mendapatkan hasil terbaik dengan waktu yang tidak panjang (alasan pemilihan) | Algoritma tidak mudah untuk dipahami
+  
 ---
 <sub><sup>5. Shubang Agrawal. Medium: Logistic Regression. (2021).</sup></sub><br>
 <sub><sup>6. Edpresso Team. What is a multi-layered perceptron?</sup></sub><br>
@@ -122,17 +132,110 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
 <sub><sup>10. Acerbi, Luigi, and Wei Ji Ma. "Practical Bayesian optimization for model fitting with Bayesian adaptive direct search." Proceedings of the 31st International Conference on Neural Information Processing Systems. 2017.</sup></sub>
 
 ## Data Understanding
-Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
+Berikut merupakan informasi datasets yang digunakan:
+Detail | Keterangan
+-- | --
+Source | [Kaggle: Predict Droughts using Weather & Soil Data](https://www.kaggle.com/cdminix/us-drought-meteorological-data)
+License | [Public (CC0 1.0)](https://creativecommons.org/publicdomain/zero/1.0/)
+Format | zip (&pm;172 MB)
+Domain | Weather, Climate, Earth Science, Environment
+Timeframe | 2017/01/01 s.d. 2020/12/31
+Data Pendukung | [us_county.csv](https://www.kaggle.com/headsortails/covid19-us-county-jhu-data-demographics?select=us_county.csv) <br><br> [us_climate_region.csv](https://www.kaggle.com/zeeniye/us-climate-regions?select=us_climate_regions.csv)
 
-Selanjutnya, uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
+Data *meterorological* terdapat pada file utama. Untuk proyek ini menggunakan file `test_timeseries.csv` dan `validation_timeseries.csv` yang masing-masing berisi sebanyak 2.3 juta baris dan 21 fitur menunjukkan informasi berkaitan dengan cuaca dan iklim yang tercatat setiap hari (lebih detailnya adalah dalam sekian menit) serta telah terdapat level dari *drought* tercatat hanya setiap pekan (sehingga banyak informasi tidak ada). Kemudian data pada file `soil_data.csv` yang menunjukkan informasi berkaitan dengan tanah (tipe, ketinggian, dll) dengan 3109 baris dan 32 fitur. Serta terdapat dua data pendukung berisi informasi wilayah, selengkapnya penjelasan fitur pada datasets:
 
-Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+### Fitur-fitur pada data ***meteorological*** adalah sebagai berikut:
+No | Fitur | Rincian
+-- | -- | --
+1.| `fips` | Menunjukkan kode dari setiap [*county*](https://www.nrcs.usda.gov/wps/portal/nrcs/detail/national/home/?cid=nrcs143_013697) pada Amerika Serikat.
+2.| `date` | Tanggal observasi (format yyyy-mm-dd).
+3.| `PRECTOT` | Curah hujan (mm) dalam satu hari.
+4.| `PS` | Tekanan Permukaan (kPa).
+5.| `QV2M` | Kelembaban Spesifik pada ketinggian 2 Meter (g/kg)
+6.| `T2M` | Suhu pada ketinggian 2 Meter (C).
+7.| `T2MDEW` | Titik Embun/Beku pada ketinggian 2 Meter (C).
+8.| `T2MWET` | Suhu Bola Basah pada ketinggian 2 Meter (C).
+9.| `T2M_MAX` | Suhu maksimal pada ketinggian 2 Meter (C).
+10.| `T2M_MIN` | Suhu minimal pada ketinggian 2 Meter (C).
+11.| `T2M_RANGE` | T2M_MAX - T2M_MIN.
+12.| `TS` | Suhu permukaan bumi (C).
+13.| `WS10M` | Kecepatan angin pada ketinggian 10 Meter (m/s).
+14.| `WS10M_MAX` | Kecepatan maksimum angin pada ketinggian 10 Meter (m/s).
+15.| `WS10M_MIN` | Kecepatan minimum angin pada ketinggian 10 Meter (m/s).
+16.| `WS10M_RANGE` | WS10M_MAX - WS10M_MIN.
+17.| `WS50M` | Kecepatan angin pada ketinggian 50 Meter (m/s).
+18.| `WS50M_MAX` | Kecepatan maksimum angin pada ketinggian 50 Meter (m/s).
+19.| `WS50M_MIN` | Kecepatan minimum angin pada ketinggian 50 Meter (m/s).
+20.| `WS50M_RANGE` | WS50M_MAX - WS50M_MIN.
+21.| `score` | Ukuran tingkatan ***drought*** mulai dari D0 (tidak ada *drought*), D1-D4 (*drought* berskala).
+
+### Fitur-fitur pada data pendukung adalah sebagai berikut:
+No | Fitur | Rincian
+-- | -- | --
+1.| `fips` | Menunjukkan kode dari setiap *county* pada Amerika Serikat.
+2.| `county` | Nama daerah *county*.
+3.| `state` | Nama negara bagian.
+4.| `state_code` | Kode dari negara bagian.
+5.| `climate_regions` | [Nama wilayah berdasar pembagian iklim](https://www.ncdc.noaa.gov/monitoring-references/maps/us-climate-regions.php).
+
+### Fitur-fitur pada data ***soil*** adalah sebagai berikut:
+No | Fitur | Rincian
+-- | -- | --
+1.| `fips` | Menunjukkan kode dari setiap *county* pada Amerika Serikat.
+2.| `lat` | Informasi *latitude* (garis lintang).
+3.| `lot` |Informasi *longitude* (garis bujur).
+4.| `elevation` | Median dari tingkat elevasi (meter).
+5.| `slope1` | 0 % ≤ Tingkat kemiringan ≤ 0.5 %.
+6.| `slope2` | 0.5 % ≤ Tingkat kemiringan ≤ 2 %.
+7.| `slope3` | 2 % ≤ Tingkat kemiringan ≤ 5 %.
+8.| `slope4` | 5 % ≤ Tingkat kemiringan ≤ 10 %.
+9.| `slope5` | 10 % ≤ Tingkat kemiringan ≤ 15 %.
+10.| `slope6` | 15 % ≤ Tingkat kemiringan ≤ 30 %.
+11.| `slope7` | 30 % ≤ Tingkat kemiringan ≤ 45 %.
+12.| `slope8` | 45 % ≤ Tingkat kemiringan.
+13.| `aspectN` | Utara: 0˚< aspek kemiringan ≤45˚ or 315˚< aspek kemiringan ≤360˚.
+14.| `aspectE` | Timur: 45˚< aspek kemiringan ≤135˚.
+15.| `aspectS` | Selatan: 135˚< aspek kemiringan ≤225˚.
+16.| `aspectW` | Utara: 225˚< aspek kemiringan ≤315˚.
+17| `aspectUnknown` | Aspek kemiringan tidak terdifinisi atau jika nilai kemiringan ≤ 2%.
+18.| `WAT_LAND` | Area perairan.
+19.| `NVG_LAND` | Lahan tandus/sangat jarang vegetasi.
+20.| `URB_LAND` | Perumahan dan Infrakstruktur (area pembangunan).
+21.| `GRS_LAND` | Rumput / semak / hutan.
+22.| `FOR_LAND` | Lahan hutan, dikalibrasi dengan statistik lahan FRA2000.
+23.| `CULTRF_LAND` | Lahan pertanian tadah hujan.
+24.| `CULTIR_LAND` | Lahan pertanian beririgasi, menurut GMIA 4.0.
+25.| `CULT_LAND` | Total lahan yang ditanami.
+26.| `SQ1` | Ketersediaan nutrisi.
+27.| `SQ2` | Kapasitas retensi nutrisi.
+28.| `SQ3` | Kondisi perakaran.
+29.| `SQ4` | Ketersediaan oksigen untuk akar.
+30.| `SQ5` | Kadar kelebihan garam.
+31.| `SQ6` | Toksisitas.
+32.| `SQ7` | Workability (tanpa adanya penghambat).
+
+#### Visualisasi data untuk beberapa kolom dengan fitur *continuous*
+![image](https://user-images.githubusercontent.com/59215827/137143625-2ce15a80-acee-467b-832b-9325ae881cc6.png)
+![image](https://user-images.githubusercontent.com/59215827/137144234-31d02388-e58d-4b35-8e8d-b63a5e7e667e.png)
+![image](https://user-images.githubusercontent.com/59215827/137144311-0405abb7-2b46-4dcf-b390-5a84c7e3d1ab.png)
+![image](https://user-images.githubusercontent.com/59215827/137144931-d5a1b9f8-ffcf-4dc4-9535-f616f3433ce4.png)
+![image](https://user-images.githubusercontent.com/59215827/137143960-66a37bb8-8a7f-46a3-9e9f-266668850513.png)
+![image](https://user-images.githubusercontent.com/59215827/137144581-bad63791-4fde-4d5e-a2d2-715240f70c10.png)
+![image](https://user-images.githubusercontent.com/59215827/137144659-ef134e16-2121-49aa-80f1-08618359a0aa.png)
+
+#### Visualisasi data pada beberapa kolom dengan fitur *categorical*
+![climate_region](https://user-images.githubusercontent.com/59215827/137142558-b4252712-72eb-4b76-862b-63eb2e18f8fa.png)
+![month](https://user-images.githubusercontent.com/59215827/137142599-8c6d0ce6-ddc1-4a23-8a47-ec79a586fe79.png)
+![sq1](https://user-images.githubusercontent.com/59215827/137142675-f86d67a1-0366-4557-b9e8-fd1837b774f2.png)
+![sq4](https://user-images.githubusercontent.com/59215827/137145312-8091ac70-5ebc-4a31-94b0-f66c78501fb7.png)
+
+- Kategori *default*
+![score_5](https://user-images.githubusercontent.com/59215827/137143052-76f81c81-7fe3-4ebe-90ae-590e9ec7648f.png)
+- Kategori menjadi *binary*
+![score_2](https://user-images.githubusercontent.com/59215827/137143096-04042124-13f2-402c-9bff-322d0a3db528.png)
 
 ## Data Preparation
-Pada bagian ini Anda menjelaskan teknik yang digunakan pada tahapan Data Preparation. 
+Sebagaimana telah disampaikan, bagian ini terbagi menjadi dua yaitu `*data preprocessing*` dan `*data wrangling*`: 
 - Terapkan minimal satu teknik data preparation dan jelaskan proses yang dilakukan.
 - Jelaskan alasan mengapa Anda perlu menerapkan teknik tersebut pada tahap Data Preparation. 
 
