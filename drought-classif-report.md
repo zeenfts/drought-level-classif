@@ -3,10 +3,9 @@
 ## Domain Proyek
 Proyek ***Machine Learning*** ini akan menyelesaikan permasalahan dalam domain **lingkungan** dengan judul "Prediksi Kekeringan parah berdasarkan Data *Meteorological* dan Data Informasi *Soil*".
 
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[<sub><sup>image source</sup></sub>](https://unsplash.com/photos/8wuOLdN77A4)
-
 <p align="center">
-  <img width="460" height="300" src="https://user-images.githubusercontent.com/59215827/137079905-72dcbb55-bd12-47c1-9f1a-ea89dffea504.jpg" alt="Source: https://unsplash.com/photos/8wuOLdN77A4">
+  <img width="460" height="300" src="https://user-images.githubusercontent.com/59215827/137079905-72dcbb55-bd12-47c1-9f1a-ea89dffea504.jpg"><br>
+  <sup><sub><a href="https://unsplash.com/photos/8wuOLdN77A4">image source</a></sub></sup>
 </p>
 
 ### Latar Belakang
@@ -56,7 +55,8 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
 
   * **Logistic Regression**: Merupakan model ***linear*** dalam kasus klasifikasi yang memprediksi response variable menggunakan fungsi persamaan ***sigmoid*** (***logit***) seperti pada gambar berikut. [<sup>5</sup>](https://medium.datadriveninvestor.com/logistic-regression-1532070cf349) Algoritma ini biasanya sering dijadikan sebagai `baseline model` karena kesederhanaannya.
  
-    <img width="650" height="450" src="https://miro.medium.com/max/800/0*0daHL1k1qzunwQmc.png">
+    <img width="650" height="450" src="https://miro.medium.com/max/800/0*0daHL1k1qzunwQmc.png"><br>
+    <sup><sub><a href="https://medium.datadriveninvestor.com/logistic-regression-1532070cf349">image source</a></sub></sup>
     
     Kelebihan   | Kekurangan
     -- | --
@@ -68,7 +68,8 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
     
   * **Multi Layer Perceptron**: Merupakan model ***neural network*** sederhana yang biasanya hanya memiliki sebuah ***hidden layer*** seperti pada gambar di bawah berikut. Bekerja dengan meneruskan data dari ***input layer*** hingga ke ***hidden layer*** dan ***output layer*** atau biasa disebut dengan proses [***feedforward***](https://towardsdatascience.com/deep-learning-feedforward-neural-network-26a6705dbdc7). Kemudian diiterasikan kembali ke belakang atau disebut proses [***backward propagation***](https://towardsdatascience.com/how-does-back-propagation-in-artificial-neural-networks-work-c7cad873ea7) untuk memperkecil nilai `error` sehingga menghasilkan model yang baik. [<sup>6</sup>](https://www.educative.io/edpresso/what-is-a-multi-layered-perceptron) 
   
-    <img width="460" height="400" src="https://scikit-learn.org/stable/_images/multilayerperceptron_network.png">
+    <img width="460" height="400" src="https://scikit-learn.org/stable/_images/multilayerperceptron_network.png"><br>
+    <sup><sub><a href="https://scikit-learn.org/stable/modules/neural_networks_supervised.html">image source</a></sub></sup>
   
   Sedangkan berikut [kelebihan dan kekurangannya](https://scikit-learn.org/stable/modules/neural_networks_supervised.html).
   
@@ -80,7 +81,8 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
 
   * **Support Vector Machine (SVM)**: Algoritma yang bekerja dengan cara menemukan garis pemisah (***hyperplane***) antar data dengan membuat kelas berbeda yang mampu menyelesaikan masalah baik *linear* maupun *non-linear* terutama pada kasus klasifikasi. *Hyperplane* tersebut sangat terpengaruh dengan adanya data point di dekatnya, sehingga dapat menyebabkan suatu margin yang berusaha dimaksimalkan untuk mendapatkan hasil terbaik sebagaimana pada gambar di bawah berikut. [<sup>7</sup>](https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47) 
   
-    ![svm](https://miro.medium.com/max/600/0*9jEWNXTAao7phK-5.png) ![svm_optimal](https://miro.medium.com/max/600/0*0o8xIA4k3gXUDCFU.png)
+    ![svm](https://miro.medium.com/max/600/0*9jEWNXTAao7phK-5.png) ![svm_optimal](https://miro.medium.com/max/600/0*0o8xIA4k3gXUDCFU.png)<br>
+    <sup><sub><a href="https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47">image source</a></sub></sup>
    
     Penerapan pada proyek ini sendiri dengan mengaplikasikan teknik optimasi **Stochastic Gradient Descent (SGD)**. Dengan [penjelasan detail](https://leon.bottou.org/projects/sgd) yaitu:
      1. *Learning Rate* dituliskan dalam bentuk persamaan η0 / (1 + λ η0 t) dengan λ adalah nilai konstan untuk regularisasi,
@@ -99,7 +101,8 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
     
   * **LightGBM (LGBM)**: Algoritma berbasis [*gradient boosting*](https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/) yang berbasis *tree*. Dibandingkan algoritma pada golongan sama yang menumbuhkan *tree* secara horizontal (*level-wise*). LGBM menumbuhkan *tree*nya secara vertikal (*leaf-wise*) yang memimilih *leaf* dengan nilai *loss* tersbesar untuk ditumbuhkan sebagaimana pada gambar di bawah. [<sup>8</sup>](https://www.analyticssteps.com/blogs/what-light-gbm-algorithm-how-use-it)
 
-    <img width="560" height="400" src="https://miro.medium.com/max/724/0*4nrDSJJcTHNjMjmb.png">
+    <img width="560" height="400" src="https://miro.medium.com/max/724/0*4nrDSJJcTHNjMjmb.png"><br>
+    <sup><sub><a href="https://www.analyticsvidhya.com/blog/2017/06/which-algorithm-takes-the-crown-light-gbm-vs-xgboost/">image source</a></sub></sup>
     
     Keunikan yang dimiliki oleh LGBM adalah pada metode *boosting*nya yang bernama **GOSS (Gradient Based One Side Sampling)**. GOSS merupakan metode pengambilan sampel baru yaitu downsample menggunakan gradien. Dimana GOSS mengambil seluruh gradien instance yang bernilai besar, sedangkan untuk gradien bernilai kecil LGBM hanya diambil secara acak berupa sampel. Selain, itu terdapat juga **EFB (Exclusive Feature Building)** yang dapat mengurangi kompleksitas data dengan cara menmbundle beberapa fitur menjadi satu. [<sup>9</sup>](https://towardsdatascience.com/what-makes-lightgbm-lightning-fast-a27cf0d9785e) Berikut [kelebihan dan kekurangan](https://www.kaggle.com/questions-and-answers/103834) LGBM:
     
@@ -108,13 +111,14 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
     Cepat dan Efisien (alasan pemilihan model) | Kurangnya support maupun komunitas
     Penggunaan memori yang sedikit (alasan pemilihan model) | Model yang cenderung seperti *blackbox*
     Memiliki hasil lebih baik dibanding algoritma sejenis |
-    Sanagt baik pada data berukuran sangat besar (alasan pemilihan model) |
+    Sangat baik pada data berukuran sangat besar (alasan pemilihan model) |
     Kemampuan menggunakan komputasi GPU |
     Kemampuan dalam paralelization | 
     
 - Kemudian hasil perbandingan tersebut dipilih model dengan nilai metrik terbaik untuk selanjutnya dapat dikembangkan lebih lanjut dengan menerapkan ***hyperparameter tuning*** secara otomatis menggunakan algoritma [**Bayesian Optimization**](https://github.com/fmfn/BayesianOptimization). Algoritma ini menerapkan prinsip **Bayes Theorem** didalam proses pencarian *hyperparamater* terbaik bagi model secara efisien dan efektif. Bayesian bekerja dengan cara membangun model probabilistik terhadap suatu objektif untuk kemudian dijadikan landasan menentukan di area mana selanjutnya *hyperparameter* untuk dievaluasi dengan tetap mengacu kepada hasil evaluasi dari area sebelumnya sebagaimana ditunjukkan pada gambar di bawah. [<sup>10</sup>](https://proceedings.neurips.cc/paper/2012/file/05311655a15b75fab86956663e1819cd-Paper.pdf)
 
-  <img width="560" height="400" src="https://research.fb.com/wp-content/uploads/2018/09/bo_1d_opt.gif">
+  <img width="560" height="400" src="https://research.fb.com/wp-content/uploads/2018/09/bo_1d_opt.gif"><br>
+  <sup><sub><a href="https://research.fb.com/blog/2018/09/efficient-tuning-of-online-systems-using-bayesian-optimization/">image source</a></sub></sup>
 
   Kelebihan | Kekurangan
   -- | --
