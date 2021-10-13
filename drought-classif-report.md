@@ -19,10 +19,10 @@ Menurut **National Oceanic dan Atmospheric Administration (NOAA)**, [<sup>2</sup
 Untuk itu diperlukan suatu metode didalam membantu mengatasi fenomena ini dimana teknologi serta pemahaman peneliti semata masih terbatas untuk dapat memperkirakan akan terjadinya fenomena ini setidaknya beberapa bulan ke depan. [<sup>4</sup>](https://sgp.fas.org/crs/misc/R43407.pdf) Maka proyek ini mencoba menyelesaikan permasalahan yang ada dengan menerapkan kemampuan dari *machine learning* sehingga dapat membantu memprediksi fenomena *drought* tersebut berdasarkan data historis ***meteorological*** berupa informasi cuaca serta iklim dan juga data ***soil*** yang mengandung informasi keadaan tanah pada suatu wilayah dalam proyek ini mengambil contoh Amerika Serikat. Diharapkan *machine learning* dapat memudahkan para ahli maupun masyarakat untuk melakukan tindakan persiapan sebelum fenomena terjadi dengan proses implementasi yang secara *web* hingga *mobile* dapat diterapkan.
 
 ---
-<sub><sup>1. Eslamian, S. et al. (2017). Drought Management: Current Challenges and Future Outlook. (pp.727-761, Chapter: 34).</sup></sub><br>
-<sub><sup>2. NOAA. (2021). DROUGHT: Monitoring Economic, Environmental, and Social Impacts.</sup></sub><br>
-<sub><sup>3. National Integrated Drought Information System (NIDIS). (2021). U.S. Drought Monitor. Data tanggal 13 Oktober 2021.</sup></sub><br>
-<sub><sup>4. Peter Folger. (2017). Drought in the United States: Causes and Current Understanding. Congressional Research Service.</sup></sub>
+<sub><sup>1. Eslamian, S., et al. "Drought Management: Current Challenges and Future Outlook, Ch. 34 in Handbook of Drought and Water Scarcity, Vol. 3: Management of Drought and Water Scarcity, Ed. by Eslamian S. and Eslamian F., Francis and Taylor." (2017).</sup></sub><br>
+<sub><sup>2. NOAA. DROUGHT: Monitoring Economic, Environmental, and Social Impacts. (2021)</sup></sub><br>
+<sub><sup>3. National Integrated Drought Information System (NIDIS). U.S. Drought Monitor. Data tanggal 13 Oktober 2021. (2021)</sup></sub><br>
+<sub><sup>4. Peter Folger. Drought in the United States: Causes and Current Understanding. Congressional Research Service. (2017)</sup></sub>
 
 ## Business Understanding
 Bagian ini menjelaskan proses klarifikasi masalah dengan mengajukan beberapa solusi dalam menyelesaikannya.
@@ -52,9 +52,9 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
   * Mengatasi data tidak seimbang dengan proses ***oversampling*** serta ***undersampling***.
   * Melakukan ***data standardization*** pada semua fitur.
  
-- Pada pembuatan model digunakan algoritma ***Logistic Regression*** sebagai baseline untuk kemudian dibandingkan dengan beberapa algoritma yaitu ***Multi Layer Perceptron***, ***Support Vector Machine***, dan ***LightGBM***
+- Pada pembuatan model digunakan algoritma **Logistic Regression** sebagai baseline untuk kemudian dibandingkan dengan beberapa algoritma yaitu **Multi Layer Perceptron**, **Support Vector Machine**, dan **LightGBM**
 
-  * ***Logistic Regression***: Merupakan model ***linear*** dalam kasus klasifikasi yang memprediksi response variable menggunakan fungsi persamaan ***sigmoid*** (***logit***) seperti pada gambar berikut. [<sup>5</sup>](https://medium.datadriveninvestor.com/logistic-regression-1532070cf349) Algoritma ini biasanya sering dijadikan sebagai `baseline model` karena kesederhanaannya.
+  * **Logistic Regression**: Merupakan model ***linear*** dalam kasus klasifikasi yang memprediksi response variable menggunakan fungsi persamaan ***sigmoid*** (***logit***) seperti pada gambar berikut. [<sup>5</sup>](https://medium.datadriveninvestor.com/logistic-regression-1532070cf349) Algoritma ini biasanya sering dijadikan sebagai `baseline model` karena kesederhanaannya.
  
     <img width="650" height="450" src="https://miro.medium.com/max/800/0*0daHL1k1qzunwQmc.png">
     
@@ -66,7 +66,7 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
     Tidak hanya menunjukkan seberapa perlunya koefisien, namun juga arah asosiasinya | Sering disalah artikan untuk kasus regresi
     Menghasilkan model cukup baik terutama jika terdapat hubungan linear cukup jelas | Memiliki asumsi bahwa antara fitur tidak berkorelasi sangat kuat
     
-  * ***Multi Layer Perceptron***: Merupakan model ***neural network*** sederhana yang biasanya hanya memiliki sebuah ***hidden layer*** seperti pada gambar di bawah berikut. Bekerja dengan meneruskan data dari ***input layer*** hingga ke ***hidden layer*** dan ***output layer*** atau biasa disebut dengan proses [***feedforward***](https://towardsdatascience.com/deep-learning-feedforward-neural-network-26a6705dbdc7). Kemudian diiterasikan kembali ke belakang atau disebut proses [***backward propagation***](https://towardsdatascience.com/how-does-back-propagation-in-artificial-neural-networks-work-c7cad873ea7) untuk memperkecil nilai `error` sehingga menghasilkan model yang baik. [<sup>6</sup>](https://www.educative.io/edpresso/what-is-a-multi-layered-perceptron) 
+  * **Multi Layer Perceptron**: Merupakan model ***neural network*** sederhana yang biasanya hanya memiliki sebuah ***hidden layer*** seperti pada gambar di bawah berikut. Bekerja dengan meneruskan data dari ***input layer*** hingga ke ***hidden layer*** dan ***output layer*** atau biasa disebut dengan proses [***feedforward***](https://towardsdatascience.com/deep-learning-feedforward-neural-network-26a6705dbdc7). Kemudian diiterasikan kembali ke belakang atau disebut proses [***backward propagation***](https://towardsdatascience.com/how-does-back-propagation-in-artificial-neural-networks-work-c7cad873ea7) untuk memperkecil nilai `error` sehingga menghasilkan model yang baik. [<sup>6</sup>](https://www.educative.io/edpresso/what-is-a-multi-layered-perceptron) 
   
   <img width="460" height="400" src="https://scikit-learn.org/stable/_images/multilayerperceptron_network.png">
   
@@ -78,11 +78,11 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
   Kemampuan mempelajari model secara real time | Membutuhkan tuning hyperparameter yang cukup rumit
   Kemampuan menyelesaikan masalah `kompleks atau data sangat besar` dengan sangat baik (salah satu alasan pemilihan) | Perbedaan inisialisasi weight dapat menyebabkan nilai metrik pada validasi berbeda
 
-  * ***Support Vector Machine (SVM)***: Algoritma yang bekerja dengan cara menemukan garis pemisah (***hyperplane***) antar data dengan membuat kelas berbeda yang mampu menyelesaikan masalah baik *linear* maupun *non-linear* terutama pada kasus klasifikasi. *Hyperplane* tersebut sangat terpengaruh dengan adanya data point di dekatnya, sehingga dapat menyebabkan suatu margin yang berusaha dimaksimalkan untuk mendapatkan hasil terbaik sebagaimana pada gambar di bawah berikut. [<sup>7</sup>](https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47) 
+  * **Support Vector Machine (SVM)**: Algoritma yang bekerja dengan cara menemukan garis pemisah (***hyperplane***) antar data dengan membuat kelas berbeda yang mampu menyelesaikan masalah baik *linear* maupun *non-linear* terutama pada kasus klasifikasi. *Hyperplane* tersebut sangat terpengaruh dengan adanya data point di dekatnya, sehingga dapat menyebabkan suatu margin yang berusaha dimaksimalkan untuk mendapatkan hasil terbaik sebagaimana pada gambar di bawah berikut. [<sup>7</sup>](https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47) 
   
    ![svm](https://miro.medium.com/max/600/0*9jEWNXTAao7phK-5.png) ![svm_optimal](https://miro.medium.com/max/600/0*0o8xIA4k3gXUDCFU.png)
    
-   Penerapan pada proyek ini sendiri dengan mengaplikasikan teknik optimasi *Stochastic Gradient Descent (SGD)*. Dengan [penjelasan detail](https://leon.bottou.org/projects/sgd) yaitu:
+   Penerapan pada proyek ini sendiri dengan mengaplikasikan teknik optimasi **Stochastic Gradient Descent (SGD)**. Dengan [penjelasan detail](https://leon.bottou.org/projects/sgd) yaitu:
      1. *Learning Rate* dituliskan dalam bentuk persamaan η0 / (1 + λ η0 t) dengan λ adalah nilai konstan untuk regularisasi,
      2. Nilai konstan η0 ditentukan terlebih dahulu pada *subsample data*,
      3. *Learning Rate* pada bias dikalikan dengan 0.001 karena biasanya dapat meningkatkan kondisinya,
@@ -97,11 +97,11 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
     Efisiensi yang sangat baik terutama pada data `berskala besar` (alasan pemilihan model) | Sensitif terhadap *feature scaling*
     Kemudahan proses implementasi dan interpretasi |
     
-  * ***LightGBM (LGBM)***: Algoritma berbasis [*gradient boosting*](https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/) yang berbasis *tree*. Dibandingkan algoritma pada golongan sama yang menumbuhkan *tree* secara horizontal (*level-wise*). LGBM menumbuhkan *tree*nya secara vertikal (*leaf-wise*) yang memimilih *leaf* dengan nilai *loss* tersbesar untuk ditumbuhkan sebagaimana pada gambar di bawah. [<sup>8</sup>](https://www.analyticssteps.com/blogs/what-light-gbm-algorithm-how-use-it)
+  * **LightGBM (LGBM)**: Algoritma berbasis [*gradient boosting*](https://machinelearningmastery.com/gentle-introduction-gradient-boosting-algorithm-machine-learning/) yang berbasis *tree*. Dibandingkan algoritma pada golongan sama yang menumbuhkan *tree* secara horizontal (*level-wise*). LGBM menumbuhkan *tree*nya secara vertikal (*leaf-wise*) yang memimilih *leaf* dengan nilai *loss* tersbesar untuk ditumbuhkan sebagaimana pada gambar di bawah. [<sup>8</sup>](https://www.analyticssteps.com/blogs/what-light-gbm-algorithm-how-use-it)
 
     <img width="560" height="400" src="https://miro.medium.com/max/724/0*4nrDSJJcTHNjMjmb.png">
     
-    Keunikan yang dimiliki oleh LGBM adalah pada metode *boosting*nya yang bernama *GOSS (Gradient Based One Side Sampling)*. GOSS merupakan metode pengambilan sampel baru yaitu downsample menggunakan gradien. Dimana GOSS mengambil seluruh gradien instance yang bernilai besar, sedangkan untuk gradien bernilai kecil LGBM hanya diambil secara acak berupa sampel. Selain, itu terdapat juga *EFB (Exclusive Feature Building)* yang dapat mengurangi kompleksitas data dengan cara menmbundle beberapa fitur menjadi satu. [<sup>9</sup>](https://towardsdatascience.com/what-makes-lightgbm-lightning-fast-a27cf0d9785e) Berikut [kelebihan dan kekurangan](https://www.kaggle.com/questions-and-answers/103834) LGBM:
+    Keunikan yang dimiliki oleh LGBM adalah pada metode *boosting*nya yang bernama **GOSS (Gradient Based One Side Sampling)**. GOSS merupakan metode pengambilan sampel baru yaitu downsample menggunakan gradien. Dimana GOSS mengambil seluruh gradien instance yang bernilai besar, sedangkan untuk gradien bernilai kecil LGBM hanya diambil secara acak berupa sampel. Selain, itu terdapat juga **EFB (Exclusive Feature Building)** yang dapat mengurangi kompleksitas data dengan cara menmbundle beberapa fitur menjadi satu. [<sup>9</sup>](https://towardsdatascience.com/what-makes-lightgbm-lightning-fast-a27cf0d9785e) Berikut [kelebihan dan kekurangan](https://www.kaggle.com/questions-and-answers/103834) LGBM:
     
     Kelebihan | Kekurangan
     -- | --
@@ -111,12 +111,15 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
     Sanagt baik pada data berukuran sangat besar (alasan pemilihan model) |
     Kemampuan menggunakan komputasi GPU |
     Kemampuan dalam paralelization | 
+    
+- Kemudian hasil perbandingan tersebut dipilih model dengan nilai metrik terbaik untuk selanjutnya dapat dikembangkan lebih lanjut dengan menerapkan ***hyperparameter tuning*** secara otomatis menggunakan algoritma [**Bayesian Optimization**](https://github.com/fmfn/BayesianOptimization). Algoritma ini menerapkan prinsip **Bayes Theorem** didalam proses pencarian *hyperparamater* terbaik bagi model secara efisien dan efektif. Bayesian bekerja dengan cara membangun model probabilistik terhadap suatu objektif untuk kemudian dijadikan landasan menentukan di area mana selanjutnya *hyperparameter* untuk dievaluasi dengan tetap mengacu kepada hasil evaluasi dari area sebelumnya. [<sup>10</sup>](https://proceedings.neurips.cc/paper/2012/file/05311655a15b75fab86956663e1819cd-Paper.pdf)
 ---
-<sub><sup>5. Shubang Agrawal. (2021). Medium: Logistic Regression.</sup></sub><br>
+<sub><sup>5. Shubang Agrawal. Medium: Logistic Regression. (2021).</sup></sub><br>
 <sub><sup>6. Edpresso Team. What is a multi-layered perceptron?</sup></sub><br>
-<sub><sup>7. Rohith Gandhi. (2018). towardsdatascience: SVM, Introduction to Machin Learning Algorithms.</sup></sub><br>
-<sub><sup>8. Rohit Dwivedi. (2020). analyticssteps: What is LightGBM Algorithm, How to use it?</sup></sub><br>
-<sub><sup>9. Abhishek Sharma. (2018). towardsdatascience: What makes LightGBM lightning fast?</sup></sub>
+<sub><sup>7. Rohith Gandhi. towardsdatascience: SVM, Introduction to Machin Learning Algorithms. (2018).</sup></sub><br>
+<sub><sup>8. Rohit Dwivedi. analyticssteps: What is LightGBM Algorithm, How to use it? (2020)</sup></sub><br>
+<sub><sup>9. Abhishek Sharma. towardsdatascience: What makes LightGBM lightning fast? (2018)</sup></sub><br>
+<sub><sup>10. Acerbi, Luigi, and Wei Ji Ma. "Practical Bayesian optimization for model fitting with Bayesian adaptive direct search." Proceedings of the 31st International Conference on Neural Information Processing Systems. 2017.</sup></sub>
 
 ## Data Understanding
 Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
