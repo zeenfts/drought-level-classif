@@ -218,7 +218,21 @@ No | Fitur | Rincian
 31.| `SQ6` | Toksisitas.
 32.| `SQ7` | Workability (tanpa adanya penghambat).
 
-#### Visualisasi data untuk beberapa kolom dengan fitur *continuous*
+#### Visualisasi data pada beberapa fitur *categorical*
+![climate_region](https://user-images.githubusercontent.com/59215827/137142558-b4252712-72eb-4b76-862b-63eb2e18f8fa.png)
+![month](https://user-images.githubusercontent.com/59215827/137142599-8c6d0ce6-ddc1-4a23-8a47-ec79a586fe79.png)
+![sq1](https://user-images.githubusercontent.com/59215827/137142675-f86d67a1-0366-4557-b9e8-fd1837b774f2.png)
+![sq4](https://user-images.githubusercontent.com/59215827/137145312-8091ac70-5ebc-4a31-94b0-f66c78501fb7.png)
+
+- Kategori *default*
+
+![score_5](https://user-images.githubusercontent.com/59215827/137143052-76f81c81-7fe3-4ebe-90ae-590e9ec7648f.png)
+
+- Kategori menjadi *binary*
+ 
+![score_2](https://user-images.githubusercontent.com/59215827/137143096-04042124-13f2-402c-9bff-322d0a3db528.png)
+
+#### Visualisasi data untuk beberapa fitur *continuous*
 ![image](https://user-images.githubusercontent.com/59215827/137143625-2ce15a80-acee-467b-832b-9325ae881cc6.png)
 ![image](https://user-images.githubusercontent.com/59215827/137144234-31d02388-e58d-4b35-8e8d-b63a5e7e667e.png)
 ![image](https://user-images.githubusercontent.com/59215827/137144311-0405abb7-2b46-4dcf-b390-5a84c7e3d1ab.png)
@@ -227,21 +241,42 @@ No | Fitur | Rincian
 ![image](https://user-images.githubusercontent.com/59215827/137144581-bad63791-4fde-4d5e-a2d2-715240f70c10.png)
 ![image](https://user-images.githubusercontent.com/59215827/137144659-ef134e16-2121-49aa-80f1-08618359a0aa.png)
 
-#### Visualisasi data pada beberapa kolom dengan fitur *categorical*
-![climate_region](https://user-images.githubusercontent.com/59215827/137142558-b4252712-72eb-4b76-862b-63eb2e18f8fa.png)
-![month](https://user-images.githubusercontent.com/59215827/137142599-8c6d0ce6-ddc1-4a23-8a47-ec79a586fe79.png)
-![sq1](https://user-images.githubusercontent.com/59215827/137142675-f86d67a1-0366-4557-b9e8-fd1837b774f2.png)
-![sq4](https://user-images.githubusercontent.com/59215827/137145312-8091ac70-5ebc-4a31-94b0-f66c78501fb7.png)
-
-- Kategori *default*
-![score_5](https://user-images.githubusercontent.com/59215827/137143052-76f81c81-7fe3-4ebe-90ae-590e9ec7648f.png)
-- Kategori menjadi *binary*
-![score_2](https://user-images.githubusercontent.com/59215827/137143096-04042124-13f2-402c-9bff-322d0a3db528.png)
-
 ## Data Preparation
-Sebagaimana telah disampaikan, bagian ini terbagi menjadi dua yaitu `*data preprocessing*` dan `*data wrangling*`: 
-- Terapkan minimal satu teknik data preparation dan jelaskan proses yang dilakukan.
-- Jelaskan alasan mengapa Anda perlu menerapkan teknik tersebut pada tahap Data Preparation. 
+Sebagaimana telah disampaikan, bagian ini terbagi menjadi dua yaitu *`data preprocessing`* dan *`data wrangling`*: 
+- ***Data Preprocessing***: Proses *preparation* yang dilakukan langsung setelah data mentah diambil sebelum dilakukan proses *exploratory*.
+
+  * Memilih data mulai dari tahun 2017 hingga 2020 (hanya data `test_timeseries dan validation_timeseries` dari sumber [original](https://www.kaggle.com/cdminix/us-drought-meteorological-data))
+
+    Hal ini dilakukan mengingat data observasi keseluruhan dimulai sejak tahun 2000 dengan total ukuran datasets sebesar ±2.7 GB, total baris sebanyak ±23.8 juta, dan sebanyak 21 fitur, jika langsung diterapkan menggunakan keselurahan datasets, maka membutuhkan komputasi baik memori serta waktu yang luar biasa besar. Sehingga dilakukan iterasi mengambil sampel beberapa datasets hingga diambil keputusan berdasarkan kemampuan menghasilkan model yang baik dengan tetap mempertahankan jumlah data serta tidak membutuhkan komputasi yang sangat besar, bahwa hanya data observasi pada rentang waktu tersebut saja untuk digunakan.
+    
+  * Mengambil data yang menunjukkan tingkat *drought* secara bulat (bukan peralihan)
+    
+    Kategori pada data yang menunjukkan fenomena *drought* memiliki 5 level tingkatan dengan dimulai dari D0 hingga D4, akan tetapi mengacu kepada tujuan untuk memprediksi fenomena *drought* bukan mengklasifikasikannya. Maka tingkatan level yang menunjukkan *drought* dimulai dari D1 hingga D4 digabungkan menjadi satu kelas. Sehingga kelas D0 akan menjadi kelas *NO Drought* dan D1 hingga D4 menjadi kelas *Drought*. Selain itu dikarenakan hasil observasi *drought* hanya terjadi setiap pekannya, maka terdapat banyak data harian *meteorological* memiliki NAN Values. Pada kasus *supervised learning* seperti ini tidak terdapatnya kelas akan menjadi masalah, oleh karena itu dilakukan pendekatan filter kembali dengan hanya mengambil dataset yang memiliki nilai pada kelasnya. Hal ini menyisakan dataset menjadi sebanyak ±460 ribu baris. 
+    
+  * Mengekstrak fitur bulan berdasarkan fitur tanggal
+  
+    Cuaca dan iklim salah satu yang berhubungan dengannya adalah informasi berkaitan dengan musim. Maka diputuskan musim diambil dari fitur tanggal dengan mengekstrak fitur bulan. Fitur tersebut diekstrak dengan memperluas pembagian musim menjadi adanya *early*, *mid*, dan *late* dari 4 musim yang ada agar lebih mendetailkan ciri khas dari setiap musim tersebut. [<sup>11</sup>](https://www.ukgardening.co.uk/planting-seasons.php)
+    
+  * Menambahkan informasi wilayah berdasarkan *climate* dari data pendukung
+
+    Menurut penelitian yang dilakukan salah satunya menunjukkan, [<sup>12</sup>](https://repository.library.noaa.gov/view/noaa/10238) informasi berdasarkan iklim ini dijelaskan yaitu daerah atau suau wilayah tertentu dapat memiliki suatu ciri khas (pola) yang menunjukkan kecenderungan keadaaan iklim pada wilayah tersebut. Sehingga diputuskan untuk menambahkan fitur ini yang dapat memperbanyak informasi terhadap dataset untuk dilakukan pemodelan. 
+   
+  * Menggabungkan dataset *meteorological* dengan dataset *soil*
+    
+    Kemudian langkah *preprocessing* terakhir adalah dengan menggabungkan seluruh datasets menjadi satu buah dataset agar memudahkan dalam pembuatan model. Proses penggabungan ini diterapkan dengan melakukan [*left join*](https://learnsql.com/blog/what-is-left-join-sql/#:~:text=LEFT%20JOIN%20%2C%20also%20called%20LEFT,columns%20of%20the%20right%20table.) data *soil* ke data *meteorological* berdasarkan informasi *key* sama pada fitur *fips* yang menunjukkan kode *county* pada Amerika Serikat. Setelah dilakukannya proses tersebut maka perlu dihapus informasi dari *state* Alaska, Hawaii, dan Puerto Rico karena tidak terdapat pada dataset awal.
+  
+- ***Data Wrangling***: Proses *preparation* yang dilakukan setelah dataset dilakukan proses *exploratory* untuk menyesuaikan agar mendapatkan model *machine learning* yang baik.
+
+  * Merubah kelas kategori *drought* menjadi hanya dua.
+  * Membagi dataset ke dalam data ***validation*** (2 bulan terakhir/ 3% dari total data) dan data ***train*** (sisanya atau 97%).
+  * Mengubah fitur ke dalam tipe angka.
+  * Menghilangkan data ***outliers*** pada data ***train***.
+  * Mengatasi data tidak seimbang dengan proses ***oversampling*** serta ***undersampling***.
+  * Melakukan ***data standardization*** pada semua fitur.
+
+---
+<sub><sup>11. ukgardening. Planting seasons. (2021).</sup></sub><br>
+<sub><sup>12. Thomas R. Karl & Walter James Koss, 1984: "Regional and National Monthly, Seasonal, and Annual Temperature Weighted by Area, 1895-1983." Historical Climatology Series 4-3, National Climatic Data Center, Asheville, NC, 38 pp.</sup></sub>
 
 ## Modeling
 Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. 
