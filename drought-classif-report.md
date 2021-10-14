@@ -226,6 +226,9 @@ No | Fitur | Rincian
   5: Terutama non-tanah<br>
   6: daerah permafrost<br>
   7: Badan air.
+  
+#### Visualisasi lokasi dari dataset
+![image](https://user-images.githubusercontent.com/59215827/137268544-29414a0b-9ca7-4565-ad96-095c6f31cbb3.png)
 
 #### Visualisasi data pada beberapa fitur *categorical*
 ![climate_region](https://user-images.githubusercontent.com/59215827/137142558-b4252712-72eb-4b76-862b-63eb2e18f8fa.png)
@@ -300,7 +303,7 @@ Proses *preparation* yang dilakukan setelah dataset dilakukan proses *explorator
   
 * Melakukan ***data standardization*** pada semua fitur
 
-  Tahapan terakhir dengan melakukan proses *standardization* pada semua fitur datasets kecuali *response variable*. Proses ini dilakukan dengan mneghilangkan nilai *mean* dan mengubah ke dalam satuan unit *variance* sama. Pentingnya tahap ini adalah karena beberapa algoritma membutuhkan asumsi data yang berada pada distrbusi sama atau format rentang sama biasa disebutkan `sensitif terhadap feature scaling`. Selain itu proses ini dapat mempersingkat jarak yang dibutuhkan terutama pada penghitungan nilai *error* atau *loss* pada performa model. [<sup>15</sup>](https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/) Fungsi persamaan dalam melakukan *standardization* terlihat pada gambar berikut.
+  Tahapan terakhir dengan melakukan proses *standardization* pada semua fitur datasets kecuali *response variable*. Proses ini dilakukan dengan mneghilangkan nilai *mean* dan mengubah ke dalam satuan unit *variance* sama. Pentingnya tahap ini adalah karena beberapa algoritma membutuhkan asumsi data yang berada pada distrbusi sama atau format rentang sama (`sensitif terhadap feature scaling`). Selain itu proses ini dapat mempersingkat jarak yang dibutuhkan terutama pada penghitungan nilai *error* atau *loss* pada performa model. [<sup>15</sup>](https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/) Fungsi persamaan dalam melakukan *standardization* terlihat pada gambar berikut.
 
   <img width="350" height="170" src="https://www.thoughtco.com/thmb/IuWRp3Yt6U06_Ditky8XbUKllnY=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/zscore-56a8fa785f9b58b7d0f6e87b.GIF"><br>
   <sup><sub><a href="https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/">image source</a></sub></sup>
@@ -313,7 +316,7 @@ Proses *preparation* yang dilakukan setelah dataset dilakukan proses *explorator
 <sub><sup>15. Aniruddha Bhandari. (2020). Analytics Vidhya: Feature Scaling for Machine Learning: Understanding the Difference Between Normalization vs. Standardization.</sup></sub><br>
 
 ## Modeling
-Data yang telah dilakukan *preparation* dengan baik kemudian digunakan pada proses Modelling dengan menerapkan satu algoritma *baseline*, selanjutnya dilakukan perbandingan terhadap beberapa algoritma lain, dan terakhir hasil perbandingan tersebut akan diambil satu model terbaik untuk dikembangkan lebih lanjut dengan harapan mengalami peningkatan performa.
+Data yang telah dilakukan *preparation* dengan baik kemudian digunakan pada proses ***modelling*** dengan menerapkan satu algoritma *baseline*, selanjutnya dilakukan perbandingan terhadap beberapa algoritma lain, dan terakhir hasil perbandingan tersebut akan diambil satu model terbaik untuk dikembangkan lebih lanjut dengan harapan mengalami peningkatan performa.
 
 * Model ***baseline***
   
@@ -343,7 +346,7 @@ Hasil prediksi fenomena:
 ![image](https://user-images.githubusercontent.com/59215827/137255008-f7646fdf-6ebd-4c12-b25c-c5f148f34db1.png)
 
 ## Evaluation [<sup>16</sup>](https://towardsdatascience.com/confusion-matrix-for-your-multi-class-machine-learning-model-ff9aa3bf7826)
-Metrik yang digunakan pada proyek permasalahan ini adalah *accuracy*, *precision*, *recall*, *f1 score*, dan *ROC-AUC*. Hasil performa dari semua model yang telah dibangun terlihat pada tabel dan gambar di bawah.
+Metrik yang digunakan pada proyek permasalahan ini adalah *accuracy*, *precision*, *recall*, *f1 score*, dan *ROC-AUC*. Hasil performa dari semua model yang telah dibangun terlihat pada tabel dan gambar di bawah serta di bawahnya lagi terdapat penjelasan lebih detail mengenai kelima metrik tersebut.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/59215827/137258052-ec837c8a-24d3-4854-b269-75106aa10cd9.png"><br>
@@ -394,4 +397,5 @@ Metrik yang dapat menunjukkan relasi antara TPR dengan FPR (False Positive Rate)
 ## Kesimpulan dan Saran
 Terdapat 11 tahapan pada *data preparation* yang dilakukan sehingga dataset dapat digunakan dalam proses latih model. Kemudian model dengan performa metrik terbaik serta `>70%` diraih oleh model LightGBM tanpa adanya proses *hyperparameter tuning*. Namun, hasil tersebut menunjukkan bahwa adanya kemungkinan proses *data preparation* dapat lebih ditingkatkan lagi serta dalam pengolahan data tidak seimbang dapat memperbanyak jumlah dataset (seperti menggunakan rentang tahun lebih lama (dataset original train)) agar mendapatkan hasil lebih baik dan aman dari masalah data tidak seimbang. Serta, dapat melihat dan mencoba dengan model lain lagi atau menggunakan pendekatan hyperparameter tuning berbeda.
 
+---
 **---Ini adalah bagian akhir laporan---**
