@@ -18,10 +18,10 @@ Menurut **National Oceanic dan Atmospheric Administration (NOAA)**, [<sup>2</sup
 Untuk itu diperlukan suatu metode didalam membantu mengatasi fenomena ini dimana teknologi serta pemahaman peneliti semata masih terbatas untuk dapat memperkirakan akan terjadinya fenomena ini setidaknya beberapa bulan ke depan. [<sup>4</sup>](https://sgp.fas.org/crs/misc/R43407.pdf) Maka proyek ini mencoba menyelesaikan permasalahan yang ada dengan menerapkan kemampuan dari *machine learning* sehingga dapat membantu memprediksi fenomena *drought* tersebut berdasarkan data historis ***meteorological*** berupa informasi cuaca serta iklim dan juga data ***soil*** yang mengandung informasi keadaan tanah pada suatu wilayah dalam proyek ini mengambil contoh Amerika Serikat. Diharapkan *machine learning* dapat memudahkan para ahli maupun masyarakat untuk melakukan tindakan persiapan sebelum fenomena terjadi dengan proses implementasi yang secara *web* hingga *mobile* dapat diterapkan.
 
 ---
-<sub><sup>1. Eslamian, S., et al. "Drought Management: Current Challenges and Future Outlook, Ch. 34 in Handbook of Drought and Water Scarcity, Vol. 3: Management of Drought and Water Scarcity, Ed. by Eslamian S. and Eslamian F., Francis and Taylor." (2017).</sup></sub><br>
-<sub><sup>2. NOAA. DROUGHT: Monitoring Economic, Environmental, and Social Impacts. (2021)</sup></sub><br>
-<sub><sup>3. National Integrated Drought Information System (NIDIS). U.S. Drought Monitor. Data tanggal 13 Oktober 2021. (2021)</sup></sub><br>
-<sub><sup>4. Peter Folger. Drought in the United States: Causes and Current Understanding. Congressional Research Service. (2017)</sup></sub>
+<sub><sup>1. Eslamian, S., et al. (2017). "Drought Management: Current Challenges and Future Outlook, Ch. 34 in Handbook of Drought and Water Scarcity, Vol. 3: Management of Drought and Water Scarcity, Ed. by Eslamian S. and Eslamian F., Francis and Taylor."</sup></sub><br>
+<sub><sup>2. NOAA. (2021). DROUGHT: Monitoring Economic, Environmental, and Social Impacts.</sup></sub><br>
+<sub><sup>3. National Integrated Drought Information System (NIDIS). U.S. Drought Monitor. Data tanggal 13 Oktober 2021.</sup></sub><br>
+<sub><sup>4. Peter Folger. (2017). Drought in the United States: Causes and Current Understanding. Congressional Research Service.</sup></sub>
 
 ## Business Understanding
 Bagian ini menjelaskan proses klarifikasi masalah dengan mengajukan beberapa solusi dalam menyelesaikannya.
@@ -128,12 +128,12 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
   Optimal dalam mendapatkan hasil terbaik dengan waktu yang tidak panjang (alasan pemilihan) | Algoritma tidak mudah untuk dipahami
   
 ---
-<sub><sup>5. Shubang Agrawal. Medium: Logistic Regression. (2021).</sup></sub><br>
+<sub><sup>5. Shubang Agrawal. (2021). Medium: Logistic Regression.</sup></sub><br>
 <sub><sup>6. Edpresso Team. What is a multi-layered perceptron?</sup></sub><br>
-<sub><sup>7. Rohith Gandhi. towardsdatascience: SVM, Introduction to Machin Learning Algorithms. (2018).</sup></sub><br>
-<sub><sup>8. Rohit Dwivedi. analyticssteps: What is LightGBM Algorithm, How to use it? (2020)</sup></sub><br>
-<sub><sup>9. Abhishek Sharma. towardsdatascience: What makes LightGBM lightning fast? (2018)</sup></sub><br>
-<sub><sup>10. Acerbi, Luigi, and Wei Ji Ma. "Practical Bayesian optimization for model fitting with Bayesian adaptive direct search." Proceedings of the 31st International Conference on Neural Information Processing Systems. 2017.</sup></sub>
+<sub><sup>7. Rohith Gandhi. (2018). towardsdatascience: SVM, Introduction to Machin Learning Algorithms.</sup></sub><br>
+<sub><sup>8. Rohit Dwivedi. (2020). analyticssteps: What is LightGBM Algorithm, How to use it?</sup></sub><br>
+<sub><sup>9. Abhishek Sharma. (2018). towardsdatascience: What makes LightGBM lightning fast?</sup></sub><br>
+<sub><sup>10. Acerbi, Luigi, and Wei Ji Ma. (2017). "Practical Bayesian optimization for model fitting with Bayesian adaptive direct search." Proceedings of the 31st International Conference on Neural Information Processing Systems.</sup></sub>
 
 ## Data Understanding
 Berikut merupakan informasi datasets yang digunakan:
@@ -210,13 +210,22 @@ No | Fitur | Rincian
 23.| `CULTRF_LAND` | Lahan pertanian tadah hujan.
 24.| `CULTIR_LAND` | Lahan pertanian beririgasi, menurut GMIA 4.0.
 25.| `CULT_LAND` | Total lahan yang ditanami.
-26.| `SQ1` | Ketersediaan nutrisi.
-27.| `SQ2` | Kapasitas retensi nutrisi.
-28.| `SQ3` | Kondisi perakaran.
-29.| `SQ4` | Ketersediaan oksigen untuk akar.
-30.| `SQ5` | Kadar kelebihan garam.
-31.| `SQ6` | Toksisitas.
-32.| `SQ7` | Workability (tanpa adanya penghambat).
+26.| `SQ1` | Ketersediaan nutrisi (Tekstur tanah, karbon organik tanah, pH tanah, total basa yang dapat ditukar)
+27.| `SQ2` | Kapasitas retensi nutrisi (Karbon organik tanah, tekstur tanah, kejenuhan basa, kapasitas tukar kation tanah dan fraksi liat)
+28.| `SQ3` | Kondisi perakaran (Tekstur tanah, bulk density, fragmen kasar, sifat tanah vertikal dan fase tanah yang mempengaruhi penetrasi akar dan kedalaman tanah dan volume tanah)
+29.| `SQ4` | Ketersediaan oksigen untuk akar (Drainase tanah dan fase tanah yang mempengaruhi drainase tanah)
+30.| `SQ5` | Kadar kelebihan garam (Salinitas tanah, sodisitas tanah dan fase tanah yang mempengaruhi kondisi garam)
+31.| `SQ6` | Toksisitas (Kadar calcium carbonate dan gypsum)
+32.| `SQ7` | Workability (tanpa adanya penghambat) (Tekstur tanah, kedalaman/volume efektif tanah, dan fase tanah yang membatasi pengelolaan tanah (kedalaman tanah, singkapan batuan, kekasaran, kerikil/konkresi, dan hardpans)).
+
+* Informasi tambahan fitur `SQ`:<br>
+  1: Tidak ada atau sedikit batasan.<br>
+  2: Batasan sedang.<br>
+  3: Batasan parah<br>
+  4: Batasan yang sangat parah<br>
+  5: Terutama non-tanah<br>
+  6: daerah permafrost<br>
+  7: Badan air.
 
 #### Visualisasi data pada beberapa fitur *categorical*
 ![climate_region](https://user-images.githubusercontent.com/59215827/137142558-b4252712-72eb-4b76-862b-63eb2e18f8fa.png)
@@ -275,19 +284,27 @@ Proses *preparation* yang dilakukan setelah dataset dilakukan proses *explorator
   
 * Membagi dataset ke dalam data ***validation*** (2 bulan terakhir/ 3% dari total data) dan data ***train*** (sisanya atau 97%)
 
-  Melakukan suatu proses evaluasi sebelum menerapkannya pada data sebenarya diperlukan pembagian dataset setidaknya ke dalam dua bagian yaitu data *train* dan data *validation*. Hal ini perlu dilakukan agar dapat menguji performa model berdasarkan metrik yang telah ditetapkan. Pembagian sendiri dilakukan dengan perbandingan 97:3 yang dilakukan secara manual dengan mengambil data 2 bulan terakhir sebagai data *validation*. Proses latih model sendiri akan dilakukan pada data *train* untuk kemudian akan diuji secara terpisah pada data *validation* dengan harapan hasil pengujian mendapatkan performa sebaik pada data *train*.
+  Melakukan suatu proses evaluasi sebelum menerapkannya pada data sebenarya diperlukan pembagian dataset setidaknya ke dalam dua bagian yaitu data *train* dan data *validation*. Hal ini perlu dilakukan agar dapat menguji performa model berdasarkan metrik yang telah ditetapkan. Pembagian sendiri dilakukan dengan perbandingan 97:3 yang dilakukan secara manual dengan mengambil data 2 bulan terakhir sebagai data *validation*. Proses latih model sendiri akan dilakukan pada data *train* untuk kemudian akan diuji secara terpisah pada data *validation* dengan harapan hasil pengujian mendapatkan performa sebaik pada data *train*. Proses ini dilakukan cukup awal demi menghindari terjadinya [*data leakage*](https://www.kaggle.com/alexisbcook/data-leakage) pada kedua data tersebut. 
   
 * Mengubah fitur ke dalam tipe angka
 
     Model *machine learning* memerlukan fitur pada dataset dalam format angka untuk dilatih. Sehingga diperlukan proses pengubahan terutama dalam fitur region iklim perlu dilakukan. Proses pengimplementasian dilakukan dengan bantuan [LabelEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html) yang bekerja dengan mengganti label asli fitur ke dalam angka diskret dimulai dari '0' hingga 'total kategori-1' dan dilakukan pada fitur *categorical*.
     
-* Menghilangkan data ***outliers*** pada data ***train***.
-* Mengatasi data tidak seimbang dengan proses ***oversampling*** serta ***undersampling***.
+* Menghilangkan data ***outliers*** pada data ***train***
+
+  *Outliers* merupakan suatu nilai tidak wajar pada dataset yang dapat mengakibatkan analisis statistik menjadi kacau serta merubah asumsi yang telah ada sebelumnya. [<sup>13</sup>](https://statisticsbyjim.com/basics/remove-outliers/) Pada model sendiri adanya nilai tidak wajar ini dapat mengakibatkan interpretasi yang dihasilkan kurang begitu bagus dan berdampak terhadap performa model itu sendiri. Salah satu tindakan dalam menangani nilai tidak wajar adalah dengan membuangnya dan hal ini yang akan diterapkan dengan pendekatan [nearest neighbors](https://scikit-learn.org/0.24/modules/generated/sklearn.neighbors.LocalOutlierFactor.html#sklearn.neighbors.LocalOutlierFactor.kneighbors). Cara kerjanya dengan melakukan voting terhadap beberapa *neighbors* terdekat yang dihitung berdasarkan jarak [manhattan](https://machinelearningmastery.com/distance-measures-for-machine-learning/). Kemudian hasil voting tersebut dapat menunjukkan apakah nilai yang terdapat pada dataset termasuk ke dalam *outliers* atau bukan. Proses ini dipilih karena menerapkan asumsi dari populasi memiliki batas wajar dalam hal observasi data *meteorological*.
+
+* Mengatasi data tidak seimbang dengan proses ***oversampling*** serta ***undersampling***
+
+  Jumlah data yang tidak seimbang dapat menyebabkan model memiliki performa yang tidak sesuai harapan. Pada kasus nyata hal ini sangat dihindari karena model diharapkan memiliki kemampuan lebih utama dalam mendeteksi kelas positif (yang biasanya dilambangkan dengan selain angka '0'). Sehingga diperlukan penanganan terhadap distribusi kelas pada datasets yang dilakukan dengan menerapkan *oversampling* sekaligus *undersampling*. Teknik *oversampling* atau memperbanyak data dilakukan pada kelas *minority* yaitu *Drought* dengan mengimplementasikan SMOTENC (Syntethic Minority Oversampling Method for Nominal and Continous) yang bekerja dengan membuat suatu data sintetis baru baik untuk data kuantitatif serta data kualitatif yang didasarkan pada *nearest neighbors* berdasarkan jarak [*euclidian*](https://scikit-learn.org/stable/modules/neighbors.html). Kemudian pada kelas *majority* diterapkan *undersampling* menggunakan TomekLinks yang bekerja dengan menerapkan prinsip *nearest neighbors* jika mendapatkan kelas tersebut lebih dekat kepada *neighbors* kelas *minority* maka akan dihilangkan dari dataset. Penerapan kedua metode sekaligus adalah agar menghilangkan bias yang timbul setelah diperbanyaknya kelas *minority* dengan mengurangi kelas *majority*. [<sup>14</sup>](https://www.inf.ufrgs.br/maslab/pergamus/pubs/balancing-training-data-for.pdf)
+  
 * Melakukan ***data standardization*** pada semua fitur.
 
 ---
-<sub><sup>11. ukgardening. Planting seasons. (2021).</sup></sub><br>
-<sub><sup>12. Thomas R. Karl & Walter James Koss, 1984: "Regional and National Monthly, Seasonal, and Annual Temperature Weighted by Area, 1895-1983." Historical Climatology Series 4-3, National Climatic Data Center, Asheville, NC, 38 pp.</sup></sub>
+<sub><sup>11. ukgardening. (2021). Planting seasons.</sup></sub><br>
+<sub><sup>12. Thomas R. Karl & Walter James Koss, 1984: "Regional and National Monthly, Seasonal, and Annual Temperature Weighted by Area, 1895-1983." Historical Climatology Series 4-3, National Climatic Data Center, Asheville, NC, 38 pp.</sup></sub><br>
+<sub><sup>13. Jim Frost. (2021). Guidelines for Removing and Handling Outliers in Data.</sup></sub><br>
+<sub><sup>14. Zeng, M., Zou, B., Wei, F., Liu, X., and Wang, L. (2016). Effective prediction of three common diseases by combining SMOTE with Tomek links technique for imbalanced medical data. 2016 IEEE International Conference of Online Analysis and Computing Science (ICOACS), pp. 225–228..</sup></sub><br>
 
 ## Modeling
 Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. 
