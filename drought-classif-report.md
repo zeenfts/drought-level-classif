@@ -137,6 +137,7 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
 
 ## Data Understanding
 Berikut merupakan informasi datasets yang digunakan:
+
 Detail | Keterangan
 -- | --
 Source | [Kaggle: Predict Droughts using Weather & Soil Data](https://www.kaggle.com/cdminix/us-drought-meteorological-data)
