@@ -228,7 +228,8 @@ No | Fitur | Rincian
   7: Badan air.
   
 #### Visualisasi lokasi dari dataset
-![image](https://user-images.githubusercontent.com/59215827/137268544-29414a0b-9ca7-4565-ad96-095c6f31cbb3.png)
+![image](https://user-images.githubusercontent.com/59215827/137269797-5b14adb4-1799-4c92-9015-6392f7793da0.png)
+
 
 #### Visualisasi data pada beberapa fitur *categorical*
 ![climate_region](https://user-images.githubusercontent.com/59215827/137142558-b4252712-72eb-4b76-862b-63eb2e18f8fa.png)
