@@ -298,13 +298,19 @@ Proses *preparation* yang dilakukan setelah dataset dilakukan proses *explorator
 
   Jumlah data yang tidak seimbang dapat menyebabkan model memiliki performa yang tidak sesuai harapan. Pada kasus nyata hal ini sangat dihindari karena model diharapkan memiliki kemampuan lebih utama dalam mendeteksi kelas positif (yang biasanya dilambangkan dengan selain angka '0'). Sehingga diperlukan penanganan terhadap distribusi kelas pada datasets yang dilakukan dengan menerapkan *oversampling* sekaligus *undersampling*. Teknik *oversampling* atau memperbanyak data dilakukan pada kelas *minority* yaitu *Drought* dengan mengimplementasikan SMOTENC (Syntethic Minority Oversampling Method for Nominal and Continous) yang bekerja dengan membuat suatu data sintetis baru baik untuk data kuantitatif serta data kualitatif yang didasarkan pada *nearest neighbors* berdasarkan jarak [*euclidian*](https://scikit-learn.org/stable/modules/neighbors.html). Kemudian pada kelas *majority* diterapkan *undersampling* menggunakan TomekLinks yang bekerja dengan menerapkan prinsip *nearest neighbors* jika mendapatkan kelas tersebut lebih dekat kepada *neighbors* kelas *minority* maka akan dihilangkan dari dataset. Penerapan kedua metode sekaligus adalah agar menghilangkan bias yang timbul setelah diperbanyaknya kelas *minority* dengan mengurangi kelas *majority*. [<sup>14</sup>](https://www.inf.ufrgs.br/maslab/pergamus/pubs/balancing-training-data-for.pdf)
   
-* Melakukan ***data standardization*** pada semua fitur.
+* Melakukan ***data standardization*** pada semua fitur
 
+  Tahapan terakhir dengan melakukan proses *standardization* pada semua fitur datasets kecuali *response variable*. Proses ini dilakukan dengan mneghilangkan nilai *mean* dan mengubah ke dalam satuan unit *variance* sama. Pentingnya tahap ini adalah karena beberapa algoritma membutuhkan asumsi data yang berada pada distrbusi sama atau format rentang sama biasa disebutkan `sensitif terhadap feature scaling`. Selain itu proses ini dapat mempersingkat jarak yang dibutuhkan terutama pada penghitungan nilai *error* atau *loss* pada performa model. [<sup>15</sup>](https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/) Fungsi persamaan dalam melakukan *standardization* terlihat pada gambar berikut.
+
+  ![standardization](https://cdn.analyticsvidhya.com/wp-content/uploads/2020/03/Stand_eq.gif)<br>
+  <sup><sub><a href="https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/">image source</a></sub></sup>
+  
 ---
 <sub><sup>11. ukgardening. (2021). Planting seasons.</sup></sub><br>
 <sub><sup>12. Thomas R. Karl & Walter James Koss, 1984: "Regional and National Monthly, Seasonal, and Annual Temperature Weighted by Area, 1895-1983." Historical Climatology Series 4-3, National Climatic Data Center, Asheville, NC, 38 pp.</sup></sub><br>
 <sub><sup>13. Jim Frost. (2021). Guidelines for Removing and Handling Outliers in Data.</sup></sub><br>
 <sub><sup>14. Zeng, M., Zou, B., Wei, F., Liu, X., and Wang, L. (2016). Effective prediction of three common diseases by combining SMOTE with Tomek links technique for imbalanced medical data. 2016 IEEE International Conference of Online Analysis and Computing Science (ICOACS), pp. 225–228..</sup></sub><br>
+<sub><sup>15. Aniruddha Bhandari. (2020). Analytics Vidhya: Feature Scaling for Machine Learning: Understanding the Difference Between Normalization vs. Standardization.</sup></sub><br>
 
 ## Modeling
 Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. 
