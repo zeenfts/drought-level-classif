@@ -66,7 +66,7 @@ Solusi yang dapat diterapkan untuk mencapai tujuan tersebut diantaranya:
     Tidak hanya menunjukkan seberapa perlunya koefisien, namun juga arah asosiasinya | Sering disalah artikan untuk kasus regresi
     Menghasilkan model cukup baik terutama jika terdapat hubungan linear cukup jelas | Memiliki asumsi bahwa antara fitur tidak berkorelasi sangat kuat
     
-  * **Multi Layer Perceptron**: Merupakan model ***neural network*** sederhana yang biasanya hanya memiliki sebuah ***hidden layer*** seperti pada gambar di bawah berikut. Bekerja dengan meneruskan data dari ***input layer*** hingga ke ***hidden layer*** dan ***output layer*** atau biasa disebut dengan proses [***feedforward***](https://towardsdatascience.com/deep-learning-feedforward-neural-network-26a6705dbdc7). Kemudian diiterasikan kembali ke belakang atau disebut proses [***backward propagation***](https://towardsdatascience.com/how-does-back-propagation-in-artificial-neural-networks-work-c7cad873ea7) untuk memperkecil nilai `error` sehingga menghasilkan model yang baik. [<sup>6</sup>](https://www.educative.io/edpresso/what-is-a-multi-layered-perceptron) 
+  * **Multi Layer Perceptron (MLP)**: Merupakan model ***neural network*** sederhana yang biasanya hanya memiliki sebuah ***hidden layer*** seperti pada gambar di bawah berikut. Bekerja dengan meneruskan data dari ***input layer*** hingga ke ***hidden layer*** dan ***output layer*** atau biasa disebut dengan proses [***feedforward***](https://towardsdatascience.com/deep-learning-feedforward-neural-network-26a6705dbdc7). Kemudian diiterasikan kembali ke belakang atau disebut proses [***backward propagation***](https://towardsdatascience.com/how-does-back-propagation-in-artificial-neural-networks-work-c7cad873ea7) untuk memperkecil nilai `error` sehingga menghasilkan model yang baik. [<sup>6</sup>](https://www.educative.io/edpresso/what-is-a-multi-layered-perceptron) 
   
     <img width="460" height="400" src="https://scikit-learn.org/stable/_images/multilayerperceptron_network.png"><br>
     <sup><sub><a href="https://scikit-learn.org/stable/modules/neural_networks_supervised.html">image source</a></sub></sup>
@@ -302,7 +302,7 @@ Proses *preparation* yang dilakukan setelah dataset dilakukan proses *explorator
 
   Tahapan terakhir dengan melakukan proses *standardization* pada semua fitur datasets kecuali *response variable*. Proses ini dilakukan dengan mneghilangkan nilai *mean* dan mengubah ke dalam satuan unit *variance* sama. Pentingnya tahap ini adalah karena beberapa algoritma membutuhkan asumsi data yang berada pada distrbusi sama atau format rentang sama biasa disebutkan `sensitif terhadap feature scaling`. Selain itu proses ini dapat mempersingkat jarak yang dibutuhkan terutama pada penghitungan nilai *error* atau *loss* pada performa model. [<sup>15</sup>](https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/) Fungsi persamaan dalam melakukan *standardization* terlihat pada gambar berikut.
 
-  ![standardization](https://cdn.analyticsvidhya.com/wp-content/uploads/2020/03/Stand_eq.gif)<br>
+  <img width="350" height="170" src="https://www.thoughtco.com/thmb/IuWRp3Yt6U06_Ditky8XbUKllnY=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/zscore-56a8fa785f9b58b7d0f6e87b.GIF"><br>
   <sup><sub><a href="https://www.analyticsvidhya.com/blog/2020/04/feature-scaling-machine-learning-normalization-standardization/">image source</a></sub></sup>
   
 ---
@@ -313,12 +313,34 @@ Proses *preparation* yang dilakukan setelah dataset dilakukan proses *explorator
 <sub><sup>15. Aniruddha Bhandari. (2020). Analytics Vidhya: Feature Scaling for Machine Learning: Understanding the Difference Between Normalization vs. Standardization.</sup></sub><br>
 
 ## Modeling
-Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. 
+Data yang telah dilakukan *preparation* dengan baik kemudian digunakan pada proses Modelling dengan menerapkan satu algoritma *baseline*, selanjutnya dilakukan perbandingan terhadap beberapa algoritma lain, dan terakhir hasil perbandingan tersebut akan diambil satu model terbaik untuk dikembangkan lebih lanjut dengan harapan mengalami peningkatan performa.
 
-Jelaskan bagaimana Anda melakukan proses modeling dalam proyek. Misalnya, Anda menggunakan satu algoritma kemudian melakukan improvement dari baseline model atau Anda menggunakan dua atau lebih algoritma kemudian membandingkan performanya.
+* Model ***baseline***
+  
+  Pada tahap ini model *baseline* yang digunakan adalah **Logistic Regression** tanpa menerapkan parameter khusus. Kemudian melakukan pengujian dengan memprediksi data *validation* yang selanjutnya performa model diukur.
+  
+* Model **Perbandingan**
 
-Sajikan model terbaik Anda sebagai solusi.
-Jelaskan pula hasil dari model Anda (misal, hasil prediksi).
+  Setelah melihat performa pada model *baseline*, maka dilakukan penambahan model baru sejumlah tiga yaitu **SVM**, **MLP**, dan **LGBM**. Kemudian ketiga model baru dilakukan proses pengujian dengan memprediksi data *validation* yang selanjutnya performa model terukur dibandingkan dengan model *baseline*.
+  
+* Model **Pengembangan**
+
+  Terakhir berdasarkan perbandingan dari keempat model, selanjutnya dilakukan proses optimasi mengimplementasikan *hyperparameter tuning* dengan harapan performa model terbaik dari hasil perbandingan tersebut mengalami peningkatan dan semakin baik serta handal dalam menangani permasalahan ini.
+  
+Berikut adalah hasil model terbaik yang didapatkan:
+
+![image](https://user-images.githubusercontent.com/59215827/137250566-b75e3afa-4ed1-4a3c-92e3-7b6cdfac2368.png)
+
+Beserta contoh prediksi dari model terbaik tersebut:
+
+![image](https://user-images.githubusercontent.com/59215827/137254572-9003f1a9-9325-40bf-93e1-1282740391b0.png)
+![image](https://user-images.githubusercontent.com/59215827/137254602-cdd95e6c-0225-4002-83ca-9340525c0984.png)
+![image](https://user-images.githubusercontent.com/59215827/137254658-0008e554-f72e-499c-813c-5ad9c9706d3a.png)
+![image](https://user-images.githubusercontent.com/59215827/137254690-e089c120-0597-48bc-9da8-2daaa4979d8c.png)
+
+Hasil prediksi fenomena:
+
+![image](https://user-images.githubusercontent.com/59215827/137255008-f7646fdf-6ebd-4c12-b25c-c5f148f34db1.png)
 
 ## Evaluation
 Bagian ini menjelaskan mengenai metrik evaluasi yang digunakan untuk mengukur kinerja model. Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
