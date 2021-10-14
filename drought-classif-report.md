@@ -252,7 +252,7 @@ Proses *preparation* yang dilakukan langsung setelah data mentah diambil sebelum
     
 * Mengambil data yang menunjukkan tingkat *drought* secara bulat (bukan peralihan)
     
-  Kategori pada data yang menunjukkan fenomena *drought* memiliki 5 level tingkatan dengan dimulai dari D0 hingga D4, akan tetapi mengacu kepada tujuan untuk memprediksi fenomena *drought* bukan mengklasifikasikannya. Maka tingkatan level yang menunjukkan *drought* dimulai dari D1 hingga D4 digabungkan menjadi satu kelas. Sehingga kelas D0 akan menjadi kelas *NO Drought* dan D1 hingga D4 menjadi kelas *Drought*. Selain itu dikarenakan hasil observasi *drought* hanya terjadi setiap pekannya, maka terdapat banyak data harian *meteorological* memiliki NAN Values. Pada kasus *supervised learning* seperti ini tidak terdapatnya kelas akan menjadi masalah, oleh karena itu dilakukan pendekatan filter kembali dengan hanya mengambil dataset yang memiliki nilai pada kelasnya. Hal ini menyisakan dataset menjadi sebanyak ±460 ribu baris. 
+  Kelas pada data yang menunjukkan fenomena *drought* memiliki 5 kelas, akan tetapi tidak semuanya ditunjukkan secara [diskret (bulat)](https://www.open.edu/openlearn/ocw/mod/oucontent/view.php?id=85587&section=1#:~:text=Discrete%20data%20is%20information%20that%20can%20only%20take%20certain%20values.&text=This%20type%20of%20data%20is,all%20examples%20of%20continuous%20data.), beberapa diantaranya tidak sedikit berada pada bilangan desimal (dapat menunjukkan kelas tersebut sedang masa peralihan atau terjadi kesalahan saat pengumpulan dataset). Sehingga perlu dilakukan proses filtering dengan hanya mengambil kelas yang menunjukkan level *drought* tersebut. Selain itu dikarenakan hasil observasi *drought* hanya terjadi setiap pekannya, maka terdapat banyak data harian *meteorological* memiliki NAN Values. Pada kasus *supervised learning* seperti ini tidak terdapatnya kelas akan menjadi masalah, oleh karena itu dilakukan pendekatan filter tersebut (sudah sekaligus menghilangkan NAN values) sehingga menyisakan dataset yang memiliki nilai pada kelasnya dan jumlah baris pada dataset menjadi ±460 ribu baris.
     
 * Mengekstrak fitur bulan berdasarkan fitur tanggal
   
@@ -269,9 +269,18 @@ Proses *preparation* yang dilakukan langsung setelah data mentah diambil sebelum
 ### ***Data Wrangling***
 Proses *preparation* yang dilakukan setelah dataset dilakukan proses *exploratory* untuk menyesuaikan agar mendapatkan model *machine learning* yang baik.
 
-* Merubah kelas kategori *drought* menjadi hanya dua.
-* Membagi dataset ke dalam data ***validation*** (2 bulan terakhir/ 3% dari total data) dan data ***train*** (sisanya atau 97%).
-* Mengubah fitur ke dalam tipe angka.
+* Merubah kelas kategori *drought* menjadi hanya dua
+
+  Kategori pada data yang menunjukkan fenomena *drought* memiliki 5 level tingkatan dengan dimulai dari D0 hingga D4, akan tetapi mengacu kepada tujuan untuk memprediksi fenomena *drought* bukan mengklasifikasikannya dari tingkat keparahan. Maka tingkatan level yang menunjukkan *drought* dimulai dari D1 hingga D4 digabungkan menjadi satu kelas. Sehingga kelas D0 akan menjadi kelas *NO Drought* (dilambangkan angka '0') dan D1 hingga D4 menjadi kelas *Drought* (dilambangkan angka '1').
+  
+* Membagi dataset ke dalam data ***validation*** (2 bulan terakhir/ 3% dari total data) dan data ***train*** (sisanya atau 97%)
+
+  Melakukan suatu proses evaluasi sebelum menerapkannya pada data sebenarya diperlukan pembagian dataset setidaknya ke dalam dua bagian yaitu data *train* dan data *validation*. Hal ini perlu dilakukan agar dapat menguji performa model berdasarkan metrik yang telah ditetapkan. Pembagian sendiri dilakukan dengan perbandingan 97:3 yang dilakukan secara manual dengan mengambil data 2 bulan terakhir sebagai data *validation*. Proses latih model sendiri akan dilakukan pada data *train* untuk kemudian akan diuji secara terpisah pada data *validation* dengan harapan hasil pengujian mendapatkan performa sebaik pada data *train*.
+  
+* Mengubah fitur ke dalam tipe angka
+
+    Model *machine learning* memerlukan fitur pada dataset dalam format angka untuk dilatih. Sehingga diperlukan proses pengubahan terutama dalam fitur region iklim perlu dilakukan. Proses pengimplementasian dilakukan dengan bantuan [LabelEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html) yang bekerja dengan mengganti label asli fitur ke dalam angka diskret dimulai dari '0' hingga 'total kategori-1' dan dilakukan pada fitur *categorical*.
+    
 * Menghilangkan data ***outliers*** pada data ***train***.
 * Mengatasi data tidak seimbang dengan proses ***oversampling*** serta ***undersampling***.
 * Melakukan ***data standardization*** pada semua fitur.
