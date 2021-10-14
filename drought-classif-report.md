@@ -243,36 +243,38 @@ No | Fitur | Rincian
 
 ## Data Preparation
 Sebagaimana telah disampaikan, bagian ini terbagi menjadi dua yaitu *`data preprocessing`* dan *`data wrangling`*: 
-- ***Data Preprocessing***: Proses *preparation* yang dilakukan langsung setelah data mentah diambil sebelum dilakukan proses *exploratory*.
+### ***Data Preprocessing***
+Proses *preparation* yang dilakukan langsung setelah data mentah diambil sebelum dilakukan proses *exploratory*.
 
-  * Memilih data mulai dari tahun 2017 hingga 2020 (hanya data `test_timeseries dan validation_timeseries` dari sumber [original](https://www.kaggle.com/cdminix/us-drought-meteorological-data))
+* Memilih data mulai dari tahun 2017 hingga 2020 (hanya data `test_timeseries dan validation_timeseries` dari sumber [original](https://www.kaggle.com/cdminix/us-drought-meteorological-data))
 
-    Hal ini dilakukan mengingat data observasi keseluruhan dimulai sejak tahun 2000 dengan total ukuran datasets sebesar ±2.7 GB, total baris sebanyak ±23.8 juta, dan sebanyak 21 fitur, jika langsung diterapkan menggunakan keselurahan datasets, maka membutuhkan komputasi baik memori serta waktu yang luar biasa besar. Sehingga dilakukan iterasi mengambil sampel beberapa datasets hingga diambil keputusan berdasarkan kemampuan menghasilkan model yang baik dengan tetap mempertahankan jumlah data serta tidak membutuhkan komputasi yang sangat besar, bahwa hanya data observasi pada rentang waktu tersebut saja untuk digunakan.
+  Hal ini dilakukan mengingat data observasi keseluruhan dimulai sejak tahun 2000 dengan total ukuran datasets sebesar ±2.7 GB, total baris sebanyak ±23.8 juta, dan sebanyak 21 fitur, jika langsung diterapkan menggunakan keselurahan datasets, maka membutuhkan komputasi baik memori serta waktu yang luar biasa besar. Sehingga dilakukan iterasi mengambil sampel beberapa datasets hingga diambil keputusan berdasarkan kemampuan menghasilkan model yang baik dengan tetap mempertahankan jumlah data serta tidak membutuhkan komputasi yang sangat besar, bahwa hanya data observasi pada rentang waktu tersebut saja untuk digunakan.
     
-  * Mengambil data yang menunjukkan tingkat *drought* secara bulat (bukan peralihan)
+* Mengambil data yang menunjukkan tingkat *drought* secara bulat (bukan peralihan)
     
-    Kategori pada data yang menunjukkan fenomena *drought* memiliki 5 level tingkatan dengan dimulai dari D0 hingga D4, akan tetapi mengacu kepada tujuan untuk memprediksi fenomena *drought* bukan mengklasifikasikannya. Maka tingkatan level yang menunjukkan *drought* dimulai dari D1 hingga D4 digabungkan menjadi satu kelas. Sehingga kelas D0 akan menjadi kelas *NO Drought* dan D1 hingga D4 menjadi kelas *Drought*. Selain itu dikarenakan hasil observasi *drought* hanya terjadi setiap pekannya, maka terdapat banyak data harian *meteorological* memiliki NAN Values. Pada kasus *supervised learning* seperti ini tidak terdapatnya kelas akan menjadi masalah, oleh karena itu dilakukan pendekatan filter kembali dengan hanya mengambil dataset yang memiliki nilai pada kelasnya. Hal ini menyisakan dataset menjadi sebanyak ±460 ribu baris. 
+  Kategori pada data yang menunjukkan fenomena *drought* memiliki 5 level tingkatan dengan dimulai dari D0 hingga D4, akan tetapi mengacu kepada tujuan untuk memprediksi fenomena *drought* bukan mengklasifikasikannya. Maka tingkatan level yang menunjukkan *drought* dimulai dari D1 hingga D4 digabungkan menjadi satu kelas. Sehingga kelas D0 akan menjadi kelas *NO Drought* dan D1 hingga D4 menjadi kelas *Drought*. Selain itu dikarenakan hasil observasi *drought* hanya terjadi setiap pekannya, maka terdapat banyak data harian *meteorological* memiliki NAN Values. Pada kasus *supervised learning* seperti ini tidak terdapatnya kelas akan menjadi masalah, oleh karena itu dilakukan pendekatan filter kembali dengan hanya mengambil dataset yang memiliki nilai pada kelasnya. Hal ini menyisakan dataset menjadi sebanyak ±460 ribu baris. 
     
-  * Mengekstrak fitur bulan berdasarkan fitur tanggal
+* Mengekstrak fitur bulan berdasarkan fitur tanggal
   
-    Cuaca dan iklim salah satu yang berhubungan dengannya adalah informasi berkaitan dengan musim. Maka diputuskan musim diambil dari fitur tanggal dengan mengekstrak fitur bulan. Fitur tersebut diekstrak dengan memperluas pembagian musim menjadi adanya *early*, *mid*, dan *late* dari 4 musim yang ada agar lebih mendetailkan ciri khas dari setiap musim tersebut. [<sup>11</sup>](https://www.ukgardening.co.uk/planting-seasons.php)
+  Cuaca dan iklim salah satu yang berhubungan dengannya adalah informasi berkaitan dengan musim. Maka diputuskan musim diambil dari fitur tanggal dengan mengekstrak fitur bulan. Fitur tersebut diekstrak dengan memperluas pembagian musim menjadi adanya *early*, *mid*, dan *late* dari 4 musim yang ada agar lebih mendetailkan ciri khas dari setiap musim tersebut. [<sup>11</sup>](https://www.ukgardening.co.uk/planting-seasons.php)
     
-  * Menambahkan informasi wilayah berdasarkan *climate* dari data pendukung
+* Menambahkan informasi wilayah berdasarkan *climate* dari data pendukung
 
-    Menurut penelitian yang dilakukan salah satunya menunjukkan, [<sup>12</sup>](https://repository.library.noaa.gov/view/noaa/10238) informasi berdasarkan iklim ini dijelaskan yaitu daerah atau suau wilayah tertentu dapat memiliki suatu ciri khas (pola) yang menunjukkan kecenderungan keadaaan iklim pada wilayah tersebut. Sehingga diputuskan untuk menambahkan fitur ini yang dapat memperbanyak informasi terhadap dataset untuk dilakukan pemodelan. 
+  Menurut penelitian yang dilakukan salah satunya menunjukkan, [<sup>12</sup>](https://repository.library.noaa.gov/view/noaa/10238) informasi berdasarkan iklim ini dijelaskan yaitu daerah atau suau wilayah tertentu dapat memiliki suatu ciri khas (pola) yang menunjukkan kecenderungan keadaaan iklim pada wilayah tersebut. Sehingga diputuskan untuk menambahkan fitur ini yang dapat memperbanyak informasi terhadap dataset untuk dilakukan pemodelan. 
    
-  * Menggabungkan dataset *meteorological* dengan dataset *soil*
+* Menggabungkan dataset *meteorological* dengan dataset *soil*
     
-    Kemudian langkah *preprocessing* terakhir adalah dengan menggabungkan seluruh datasets menjadi satu buah dataset agar memudahkan dalam pembuatan model. Proses penggabungan ini diterapkan dengan melakukan [*left join*](https://learnsql.com/blog/what-is-left-join-sql/#:~:text=LEFT%20JOIN%20%2C%20also%20called%20LEFT,columns%20of%20the%20right%20table.) data *soil* ke data *meteorological* berdasarkan informasi *key* sama pada fitur *fips* yang menunjukkan kode *county* pada Amerika Serikat. Setelah dilakukannya proses tersebut maka perlu dihapus informasi dari *state* Alaska, Hawaii, dan Puerto Rico karena tidak terdapat pada dataset awal.
+  Kemudian langkah *preprocessing* terakhir adalah dengan menggabungkan seluruh datasets menjadi satu buah dataset agar memudahkan dalam pembuatan model. Proses penggabungan ini diterapkan dengan melakukan [*left join*](https://learnsql.com/blog/what-is-left-join-sql/#:~:text=LEFT%20JOIN%20%2C%20also%20called%20LEFT,columns%20of%20the%20right%20table.) data *soil* ke data *meteorological* berdasarkan informasi *key* sama pada fitur *fips* yang menunjukkan kode *county* pada Amerika Serikat. Setelah dilakukannya proses tersebut maka perlu dihapus informasi dari *state* Alaska, Hawaii, dan Puerto Rico karena tidak terdapat pada dataset awal.
   
-- ***Data Wrangling***: Proses *preparation* yang dilakukan setelah dataset dilakukan proses *exploratory* untuk menyesuaikan agar mendapatkan model *machine learning* yang baik.
+### ***Data Wrangling***
+Proses *preparation* yang dilakukan setelah dataset dilakukan proses *exploratory* untuk menyesuaikan agar mendapatkan model *machine learning* yang baik.
 
-  * Merubah kelas kategori *drought* menjadi hanya dua.
-  * Membagi dataset ke dalam data ***validation*** (2 bulan terakhir/ 3% dari total data) dan data ***train*** (sisanya atau 97%).
-  * Mengubah fitur ke dalam tipe angka.
-  * Menghilangkan data ***outliers*** pada data ***train***.
-  * Mengatasi data tidak seimbang dengan proses ***oversampling*** serta ***undersampling***.
-  * Melakukan ***data standardization*** pada semua fitur.
+* Merubah kelas kategori *drought* menjadi hanya dua.
+* Membagi dataset ke dalam data ***validation*** (2 bulan terakhir/ 3% dari total data) dan data ***train*** (sisanya atau 97%).
+* Mengubah fitur ke dalam tipe angka.
+* Menghilangkan data ***outliers*** pada data ***train***.
+* Mengatasi data tidak seimbang dengan proses ***oversampling*** serta ***undersampling***.
+* Melakukan ***data standardization*** pada semua fitur.
 
 ---
 <sub><sup>11. ukgardening. Planting seasons. (2021).</sup></sub><br>
