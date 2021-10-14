@@ -319,11 +319,11 @@ Data yang telah dilakukan *preparation* dengan baik kemudian digunakan pada pros
   
   Pada tahap ini model *baseline* yang digunakan adalah **Logistic Regression** tanpa menerapkan parameter khusus. Kemudian melakukan pengujian dengan memprediksi data *validation* yang selanjutnya performa model diukur.
   
-* Model **Perbandingan**
+* Model **perbandingan**
 
   Setelah melihat performa pada model *baseline*, maka dilakukan penambahan model baru sejumlah tiga yaitu **SVM**, **MLP**, dan **LGBM**. Kemudian ketiga model baru dilakukan proses pengujian dengan memprediksi data *validation* yang selanjutnya performa model terukur dibandingkan dengan model *baseline*.
   
-* Model **Pengembangan**
+* Model **pengembangan**
 
   Terakhir berdasarkan perbandingan dari keempat model, selanjutnya dilakukan proses optimasi mengimplementasikan *hyperparameter tuning* dengan harapan performa model terbaik dari hasil perbandingan tersebut mengalami peningkatan dan semakin baik serta handal dalam menangani permasalahan ini.
   
@@ -342,15 +342,56 @@ Hasil prediksi fenomena:
 
 ![image](https://user-images.githubusercontent.com/59215827/137255008-f7646fdf-6ebd-4c12-b25c-c5f148f34db1.png)
 
-## Evaluation
-Bagian ini menjelaskan mengenai metrik evaluasi yang digunakan untuk mengukur kinerja model. Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan dan bagaimana formulanya
-- Kelebihan dan kekurangan metrik
-- Bagaimana cara menerapkannya ke dalam kode.
+## Evaluation [<sup>16</sup>](https://towardsdatascience.com/confusion-matrix-for-your-multi-class-machine-learning-model-ff9aa3bf7826)
+Metrik yang digunakan pada proyek permasalahan ini adalah *accuracy*, *precision*, *recall*, *f1 score*, dan *ROC-AUC*. Hasil performa dari semua model yang telah dibangun terlihat pada tabel dan gambar di bawah.
 
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/59215827/137258052-ec837c8a-24d3-4854-b269-75106aa10cd9.png"><br>
+  <img src="https://user-images.githubusercontent.com/59215827/137258087-7f1bd2e9-bfff-4b84-b1eb-7630c49c43bc.png">
+</p>
+
+### Confusion Matriks
+Merupakan metrik yang akan menjadi dasar dari perhitungan metrik yang digunakan.
+
+<img width="550" height="370" src="https://miro.medium.com/max/1000/1*fxiTNIgOyvAombPJx5KGeA.png"><br>
+<sup><sub><a href="https://towardsdatascience.com/confusion-matrix-for-your-multi-class-machine-learning-model-ff9aa3bf7826">image source</a></sub></sup>
+
+* True Positive (TP): Jumlah prediksi dari kelas positif yang diprediksi secara benar oleh model sebagai kelas positif.
+* True Negative (TN): Jumlah prediksi dari kelas negatif yang diprediksi secara benar oleh model sebagai kelas negatif.
+* False Positive (FP): Jumlah prediksi dari kelas negatif yang diprediksi secara salah oleh model sebagai kelas positif. Biasa juga disebut sebagai *type 1 error*.
+* False Negative (FN): Jumlah prediksi dari kelas positif yang diprediksi secara salah oleh model sebagai kelas negatif. Biasa juga disebut sebagai *type 2 error*.
+
+### Accuracy
+Metrik yang menunjukkan keseluruhan performa dari model atau dengan kata lain menunjukkan berapa banyak kelas yang diprediksi dengan benar oleh model. Merupakan model paling sering dipakai namun pada kasus data tidak seimbang memiliki kerentanan terhadap salahnya interpretasi performa (*bias*). Persamaan dari metrik ini sendiri adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/59215827/137261017-2f50a126-5d06-4828-abfb-9d5d835e392c.png)
+
+### Precision
+Metrik yang menunjukkan seberapa baik model melakukan prediksi kelas positif dengan benar sebagai kelas positif (aktual). Namun metrik ini tidak dapat menggambarkan secara jelas kelas positif (aktual) memiliki berapa banyak hasil prediksi benar. Persamaan dari metrik ini sendiri adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/59215827/137260975-447aa482-bc47-4e96-a959-4f909828773f.png)
+
+### Recall (True Positive Rate (TPR))
+Metrik yang menunjukkan seberapa baik kelas positif (aktual) diprediksi dengan benar sebagai kelas positif. Namun metrik ini tidak dapat menggambarkan seberapa baik model melakukan prediksi kelas positif sebagai kelas positif (aktual). Persamaan dari metrik ini sendiri adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/59215827/137261556-7fca427f-8c2e-4638-a93f-a8512e0e5e8c.png)
+
+### F1 Score
+Metrik yang menutupi kekurangan pada *precision* dan *recall* didalam penilaian performa terhadap kelas positif dengan cara menghitung [rata-rata *harmonic*](https://www.mathsisfun.com/numbers/harmonic-mean.html) dari keduanya. Namun dikarenakan kedua metrik sebelumnya hanya berfokus pada kelas positif menyebabkan *f1 score* juga tidak dapat menggambarkan secara spesifik penilaian performa terhadap kelas negatif. Akan tetapi semua hal tersebut diatasi dengan menerapkan versi *weighted* yang memperhitungkan keseluruhan kelas yang ada beserta distribusinya. Persamaan dari metrik ini sendiri adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/59215827/137265008-efe87699-0ccb-422f-8935-d513f3cfbf17.png)
+
+### ROC AUC Score [<sup>17</sup>](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc?hl=id)
+Metrik yang dapat menunjukkan relasi antara TPR dengan FPR (False Positive Rate) atau dengan kata lain menunjukkan performa dari model dalam semua ambang batas pada proses prediksi yang dilakukan. Namun metrik ini kurang begitu bagus jika digunakan pada kasus yang lebih cenderung hanya mempertimbangkan kelas positifnya seperti pada kasus real. Persamaan dari metrik ini sendiri adalah sebagai berikut:
+
+![image](https://user-images.githubusercontent.com/59215827/137264020-fc1a7d05-7cdd-410f-abf8-ed7e2c414bb4.png)<br>
+![image](https://user-images.githubusercontent.com/59215827/137263988-bcf1e626-8fc1-4784-9a72-360e6efd45d5.png)
+
+---
+<sub><sup>16. Joydwip Mohajon. (2020). towardsdatascience: Confusion Matrix for Your Multi-Class Machine Learning Model.</sup></sub><br>
+<sub><sup>17. Google. (2021). Machine Learning Crash Course: "Classification: ROC Curve and AUC".</sup></sub><br>
+
+## Kesimpulan dan Saran
+Terdapat 11 tahapan pada *data preparation* yang dilakukan sehingga dataset dapat digunakan dalam proses latih model. Kemudian model dengan performa metrik terbaik serta `>70%` diraih oleh model LightGBM tanpa adanya proses *hyperparameter tuning*. Namun, hasil tersebut menunjukkan bahwa adanya kemungkinan proses *data preparation* dapat lebih ditingkatkan lagi serta dalam pengolahan data tidak seimbang dapat memperbanyak jumlah dataset (seperti menggunakan rentang tahun lebih lama (dataset original train)) agar mendapatkan hasil lebih baik dan aman dari masalah data tidak seimbang. Serta, dapat melihat dan mencoba dengan model lain lagi atau menggunakan pendekatan hyperparameter tuning berbeda.
 
 **---Ini adalah bagian akhir laporan---**
-
-_Catatan:_
-_Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
