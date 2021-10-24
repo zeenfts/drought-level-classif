@@ -1,6 +1,6 @@
 # drought-level-classif
 
-[<sup>dataset 1</sup>](https://www.kaggle.com/cdminix/us-drought-meteorological-data)
+[<sup>Kaggle: Predict Droughts using Weather & Soil Data</sup>](https://www.kaggle.com/cdminix/us-drought-meteorological-data)
 [<sup>dataset 2</sup>](https://www.kaggle.com/zeeniye/us-climate-regions)
 [<sup>dataset 3</sup>](https://www.kaggle.com/headsortails/covid19-us-county-jhu-data-demographics?select=us_county.csv)
 
@@ -12,4 +12,3 @@ Classification of Drought Level in United States based on Meteorological data an
 ### Contents
 1. [Notebook (ipynb)]()
 2. [Reporting (md)](https://github.com/zeeniye/drought-level-classif/blob/main/drought-classif-report.md)
-3. [Code File (py)]()
