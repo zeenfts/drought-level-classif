@@ -1,6 +1,6 @@
 # drought-level-classif
 
-[<sup>Kaggle: Predict Droughts using Weather & Soil Data</sup>](https://www.kaggle.com/cdminix/us-drought-meteorological-data)
+[<sup>`Kaggle: Predict Droughts using Weather & Soil Data`</sup>](https://www.kaggle.com/cdminix/us-drought-meteorological-data)
 [<sup>dataset 2</sup>](https://www.kaggle.com/zeeniye/us-climate-regions)
 [<sup>dataset 3</sup>](https://www.kaggle.com/headsortails/covid19-us-county-jhu-data-demographics?select=us_county.csv)
 
